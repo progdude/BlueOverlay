@@ -1,0 +1,127 @@
+text{
+  fill: #ffffff;
+  font: 11px Helvetica, Arial, sans-serif;
+  dominant-baseline: text-before-edge;
+  alignment-baseline: text-before-edge;
+}
+.link{
+  stroke: #fff;
+  stroke-width: 2px;
+  marker-end: url(#circle-marker);
+}
+.link.back{
+  stroke: #666;
+  marker-start: url(#start-arrow-marker);
+  #start-arrow-marker{
+    fill: #666;
+  }
+}
+.address{
+  .label{
+    font-weight: 600;
+  }
+  text{
+    text-anchor: middle;
+  }
+}
+.interaction{
+  text{
+    text-anchor: middle;
+  }
+  &.details{
+    .label{
+      font-weight: 600;
+    }
+  }
+}
+.default-label.with-icon{
+  font-size: 14px;
+}
+
+.default-background{
+     fill: #5392A8;
+   }
+.default-label{
+  font-size: 20px;
+  text-anchor: middle;
+}
+
+.node.member {
+  .member-background{
+    fill: #2E9E57;
+    rx: 10px;
+    ry: 10px;
+  }
+  .avatar-img{
+    clip-path: url(#avatar-image-clip);
+  }
+  .label{
+    font-weight: 600;
+  }
+  .heading .label{
+    font-size: 18px;
+    font-weight: 400;
+  }
+}
+
+
+.action-background{
+  fill: #105466;
+  rx: 5px;
+  ry: 5px;
+}
+
+.action-btn:hover .action-background{
+  fill: #106274;
+}
+
+.action-menu-background{
+  fill: #ffffff;
+  stroke: #ccc;
+  stroke-width: 1px;
+  rx: 5px;
+  ry: 5px;
+}
+
+.action-menu-tip{
+  fill: #ffffff;
+  stroke: #ddd;
+  stroke-width: 1px;
+}
+
+.action-menu-item-background{
+  fill: #fff;
+}
+
+.action-menu-item:hover .action-menu-item-background{
+  fill: #f0f0f0;
+}
+
+.action-menu-item, .action{
+  cursor: pointer;
+}
+
+.action-menu-item-label{
+  fill: #000;
+  font-size: 13px;
+}
+
+// SVG Defs
+#avatar-image-clip-rect{
+  stroke-width: 3px;
+  stroke: #fff;
+  fill: none;
+  rx: 10px;
+  ry: 10px;
+}
+
+#end-arrow-path,
+#start-arrow-path{
+  fill: #666;
+}
+
+#circle-marker-circle{
+  fill: #fff;
+  stroke: #ccc;
+  stroke-width: 1px;
+}

@@ -1,0 +1,300 @@
+{
+  "type": "member",
+  "id": "01082331243",
+  "relation": "member",
+  "hccid": "VMDH23180232",
+  "name": "Sara Clark",
+  "avatar": "/images/temp/sarah-clark.jpg",
+  "dob": "1990-12-19",
+  "plan": "Blue Options 346 All Copay",
+  "gender": "Female",
+  "segment": "Group",
+  "phi": true,
+  "address": {
+    "street": "1234 Main Street",
+    "city": "Jacksonville",
+    "state": "FL",
+    "zip": "32256"
+  },
+  "action": {
+    "click": "expand"
+  },
+  "actions": [
+    {
+      "icon": "/images/icons/plans.png",
+      "menu": [
+        {
+          "label": "Health",
+          "icon": "/images/icons/health.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Dental",
+          "icon": "/images/icons/dental.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Vision",
+          "icon": "/images/icons/vision.png",
+          "action": {
+            "click": "navigate"
+          }
+        }
+      ]
+    },
+    {
+      "icon": "/images/icons/dependents.png",
+      "menu": [
+        {
+          "label": "Tyreese Clark (spouse)",
+          "icon": "/images/icons/shield.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Andrew Clark (child)",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Laura Clark (child)",
+          "action": {
+            "click": "navigate"
+          }
+        }
+      ]
+    },
+    {
+      "icon": "/images/icons/quick-links.png",
+      "menu": [
+        {
+          "label": "Order ID cards",
+          "icon": "/images/icons/id-card.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Make payment",
+          "icon": "/images/icons/payment.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Emulate member",
+          "icon": "/images/icons/emulate-member.png",
+          "action": {
+            "click": "navigate"
+          }
+        },
+        {
+          "label": "Search for provider",
+          "icon": "/images/icons/search-for-provider.png",
+          "action": {
+            "click": "navigate"
+          }
+        }
+      ]
+    }
+  ],
+  "children": [
+    {
+      "id": "benefits",
+      "label": "Benefits",
+      "icon": "/images/icons/benefits.png",
+      "action": {
+        "click": "expand"
+      },
+      "children": []
+    },
+    {
+      "id": "claims",
+      "label": "Claims",
+      "icon": "/images/icons/claims.png",
+      "action": {
+        "click": "expand"
+      },
+      "children": [{
+          "id": "claim-1",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-2",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-3",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-4",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-5",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-6",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-7",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-8",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-9",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        },
+        {
+          "id": "claim-10",
+          "label": "Claim",
+          "icon": "/images/icons/claims.png"
+        }
+      ]
+    },
+    {
+      "id": "addresses",
+      "label": "Addresses",
+      "icon": "/images/icons/envelope.png",
+      "action": {
+        "click": "expand"
+      },
+      "children": [
+        {
+          "id": "primary-address",
+          "type": "address",
+          "label": "Primary",
+          "address": {
+            "street": "1234 Main Street",
+            "city": "Jacksonville",
+            "state": "FL",
+            "zip": "32256"
+          }
+        },
+        {
+          "id": "correspondence-address",
+          "type": "address",
+          "label": "Correspondence",
+          "address": {
+            "street": "1234 Main Street",
+            "city": "Jacksonville",
+            "state": "FL",
+            "zip": "32256"
+          }
+        },
+        {
+          "id": "care-facility-address",
+          "type": "address",
+          "label": "Care facility",
+          "address": {
+            "street": "1234 Main Street",
+            "city": "Jacksonville",
+            "state": "FL",
+            "zip": "32256"
+          }
+        }
+      ]
+    },
+    {
+      "id": "last-interactions",
+      "label": "Last Interactions",
+      "icon": "/images/icons/phone.png",
+      "action": {
+        "click": "expand"
+      },
+      "children": [{
+          "id": "more-interactions",
+          "label": ["View more", "interactions"],
+          "icon": "/images/icons/plus.png",
+          "action": {
+            "click": "expand"
+          }
+        },{
+          "id": "interaction-1",
+          "date": "2016-03-01T13:15:00",
+          "type": "interaction",
+          "member": "Sara Clark",
+          "serviceRequest": "134123421",
+          "serviceAdvocate": {
+            "name": "Lando Carlisian",
+            "avatar": "/images/temp/lando.jpg"
+          },
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
+          "channel": "124123421"
+        },
+        {
+          "id": "interaction-2",
+          "date": "2016-03-01T13:15:00",
+          "type": "interaction",
+          "member": "Sara Clark",
+          "serviceRequest": "134123421",
+          "serviceAdvocate": {
+            "name": "Lando Carlisian",
+            "avatar": "/images/temp/lando.jpg"
+          },
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
+          "channel": "124123421"
+        },
+        {
+          "id": "interaction-3",
+          "date": "2016-03-01T13:15:00",
+          "type": "interaction",
+          "member": "Sara Clark",
+          "serviceRequest": "134123421",
+          "serviceAdvocate": {
+            "name": "Lando Carlisian",
+            "avatar": "/images/temp/lando.jpg"
+          },
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
+          "channel": "124123421"
+        },
+        {
+          "id": "interaction-4",
+          "date": "2016-03-01T13:15:00",
+          "type": "interaction",
+          "member": "Sara Clark",
+          "serviceRequest": "134123421",
+          "serviceAdvocate": {
+            "name": "Lando Carlisian",
+            "avatar": "/images/temp/lando.jpg"
+          },
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
+          "channel": "124123421"
+        },
+        {
+          "id": "interaction-5",
+          "date": "2016-03-01T13:15:00",
+          "type": "interaction",
+          "member": "Sara Clark",
+          "serviceRequest": "134123421",
+          "serviceAdvocate": {
+            "name": "Lando Carlisian",
+            "avatar": "/images/temp/lando.jpg"
+          },
+          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
+          "channel": "124123421"
+        }]
+    }
+  ]
+}

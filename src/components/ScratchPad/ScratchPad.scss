@@ -1,0 +1,31 @@
+.container{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 300px;;
+}
+
+.header{
+  border-radius: 5px 5px 0 0;
+  background-color: #6D6D6D;
+  color: #fff;
+  font-size: 0.9em;
+  padding: 10px
+}
+.textarea{
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  resize: none;
+  display: block;
+}
+.footer{
+  text-align: center;
+  padding: 10px;
+  background-color: #F7931E;
+  color: #fff;
+  font-size: 0.8em;
+  border-radius: 0 0 5px 5px;
+}
