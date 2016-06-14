@@ -28,9 +28,12 @@ text{
   text{
     text-anchor: middle;
   }
+  .label{
+    font-weight: 600;
+  }
   &.details{
-    .label{
-      font-weight: 600;
+    text{
+      text-anchor: inherit;
     }
   }
 }
@@ -105,7 +108,25 @@ text{
   fill: #000;
   font-size: 13px;
 }
-
+.pin-area{
+  width: 0;
+  border-left: 3px dashed #CCC;
+  position: absolute;
+  top: 10px;
+  right: 275px;
+  height: 100%;
+  display: none;
+}
+line.hr{
+  stroke: #fff;
+}
+.html{
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  overflow: auto;
+}
 // SVG Defs
 #avatar-image-clip-rect{
   stroke-width: 3px;
@@ -124,13 +145,4 @@ text{
   fill: #fff;
   stroke: #ccc;
   stroke-width: 1px;
-}
-.pin-area{
-  width: 0;
-  border-left: 3px dashed #CCC;
-  position: absolute;
-  top: 10px;
-  right: 275px;
-  height: 100%;
-  display: none;
 }

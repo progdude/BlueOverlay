@@ -1,19 +1,20 @@
 export default function (
   node,
   {avatar = '/images/icons/no-avatar.png', phi = false} = {},
-  {x = 0, y = 0} = {},
-  {height = 65, width = 65} = {}
+  {x = 0, y = 0, height = 65, width = 65, stroke = true} = {}
 ) {
   const atr = node.append('g')
     .attr({
       'class': 'avatar',
       transform: `translate(${x},${y})`,
     });
-  atr.append('use')
-    .attr({
-      'class': 'avatar-stroke',
-      'xlink:href': '#avatar-image-clip-rect',
-    });
+  if (stroke) {
+    atr.append('use')
+      .attr({
+        'class': 'avatar-stroke',
+        'xlink:href': '#avatar-image-clip-rect',
+      });
+  }
   atr.append('image')
     .attr({
       'class': 'avatar-img',

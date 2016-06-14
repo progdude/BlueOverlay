@@ -11,7 +11,7 @@ export const Header = () => (
       <img src='/images/icons/log-off.png' />
     </Link>
     <Link to='/member' className={classes.headerAvatar}>
-      <img src='/images/temp/avatar.jpg' />
+      <img src='/images/temp/lando.jpg' />
     </Link>
   </div>
 );
