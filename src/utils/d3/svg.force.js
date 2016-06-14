@@ -1,6 +1,6 @@
-import flatten from 'utils/d3/flatten';
-import config from 'utils/d3/forceConfig';
-import renderers from 'utils/d3/svg.renderers';
+import flatten from './flatten';
+import config from './forceConfig';
+import renderers from './svg.renderers';
 import cola from 'webcola';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
@@ -56,6 +56,10 @@ class Force {
     const node = svg.selectAll('.node')
       .data(realNodes, d => d.id);
 
+    const drag = this.d3cola.drag()
+      .on('dragstart', ::this.dragstart)
+      .on('drag', ::this.dragmove)
+      .on('dragend', ::this.dragend);
     node.enter()
       .append('g')
       .attr('class', d => `node ${d.type || 'default'}`)
@@ -68,7 +72,7 @@ class Force {
           renderers.default.enter(node, d);
         }
       })
-      .call(this.d3cola.drag);
+      .call(drag);
 
     node.exit()
       .each(function (d) {
@@ -134,6 +138,39 @@ class Force {
       link.filter(d => !(d.target.children && d.target.children.length > 0))
         .classed('back', false);
     });
+  }
+
+  dragstart (d, i) {
+    if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
+      d3.select('.pin-area').style({ display: 'block' });
+    }
+  }
+
+  dragmove (d, i) {
+    if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
+      if (!d.detached && d3.event.x + d.width > this.pageBounds.width - 150) {
+        d._parent.children.splice(d._parent.children.indexOf(d), 1);
+        d.parent = null;
+        d.detached = true;
+        this.update();
+      } else if (d.detached && d3.event.x + d.width < this.pageBounds.width - 150) {
+        if (d._parent.children) {
+          d._parent.children.push(d);
+        } else {
+          d.hidden = true;
+        }
+        d.parent = d._parent;
+        d.detached = false;
+        if (!d.pinable || d.hidden) {
+          d3.select('.pin-area').style({display: 'none'});
+        }
+        this.update();
+      }
+    }
+  }
+
+  dragend (d, i) {
+    d3.select('.pin-area').style({display: 'none'});
   }
 }
 

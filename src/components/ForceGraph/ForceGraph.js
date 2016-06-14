@@ -25,6 +25,7 @@ class ForceGraph extends Component {
     return (
       <div className={classes.full}>
         <RD3Component data={this.state.d3} />
+        <div className='pin-area'></div>
       </div>
     );
   }

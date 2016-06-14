@@ -2,7 +2,7 @@
 const actions = {
   expand: function (data) {
     return function (d) {
-      if (window.d3.event.defaultPrevented) return;
+      if (d.detached || window.d3.event.defaultPrevented) return;
       if (d.all_children && d.all_children.length > 9) {
         this.parentNode.parentNode.appendChild(this.parentNode);
         d.expand();

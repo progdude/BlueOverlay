@@ -44,6 +44,7 @@ export function enter (node, data) {
     if (detailView) {
       data.height = data.width = r * 2;
       data.radius = r;
+      data.pinable = false;
       bg.transition().duration(500)
         .attr(cir);
       circle.transition().duration(500).attr(cir);
@@ -51,6 +52,7 @@ export function enter (node, data) {
       data.height = 300;
       data.width = 250;
       data.radius = false;
+      data.pinable = true;
       bg.transition().duration(500)
         .attr(rect);
       circle.transition().duration(500).attr(rect);

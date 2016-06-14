@@ -3,8 +3,8 @@ export default function flatten (root) {
 
   const recurse = (node, parent) => {
     node._children = node.all_children = node.children;
-    if (parent) node.parent = parent;
     if (parent) {
+      node._parent = node.parent = parent;
       node.children = null;
       if (parent.parent) {
         node.hidden = true;
