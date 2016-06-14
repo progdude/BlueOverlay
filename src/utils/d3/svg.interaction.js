@@ -60,15 +60,8 @@ export function enter (node, data) {
 
   details.forEach(c => c.attr('visibility', 'hidden'));
 
-  // action target
-  const circle = node.append('rect')
-    .attr(Object.assign({
-      fill: 'transparent',
-      'stroke-width': 0,
-    }, cir));
-
   let detailView = false;
-  circle.on('click', function () {
+  node.on('click', function () {
     if (window.d3.event.defaultPrevented) return;
     if (detailView) {
       data.height = data.width = r * 2;
@@ -76,7 +69,6 @@ export function enter (node, data) {
       data.pinable = false;
       bg.transition().duration(500)
         .attr(cir);
-      circle.transition().duration(500).attr(cir);
       blurb.forEach(c => c.attr('visibility', 'visible'));
       details.forEach(c => c.attr('visibility', 'hidden'));
       node.classed('details', false);
@@ -87,7 +79,6 @@ export function enter (node, data) {
       data.pinable = true;
       bg.transition().duration(500)
         .attr(rect);
-      circle.transition().duration(500).attr(rect);
       blurb.forEach(c => c.attr('visibility', 'hidden'));
       details.forEach(c => c.attr('visibility', 'visible'));
       node.classed('details', true);
