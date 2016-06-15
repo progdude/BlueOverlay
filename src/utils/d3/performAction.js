@@ -3,12 +3,12 @@ const actions = {
   expand: function (data) {
     return function (d) {
       if (d.detached || window.d3.event.defaultPrevented) return;
-      if (d.all_children && d.all_children.length > 9) {
+      if (d._children && d._children.length > 9) {
         this.parentNode.parentNode.appendChild(this.parentNode);
         d.expand();
       } else {
         d.hidden = false;
-        d.children = d.all_children;
+        d.children = d._children;
         if (d.children) {
           d.children.forEach(n => {
             n.hidden = false;

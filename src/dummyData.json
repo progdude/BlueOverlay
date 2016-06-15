@@ -3,8 +3,8 @@
   "id": "01082331243",
   "relation": "member",
   "hccid": "VMDH23180232",
-  "name": "Sara Clark",
-  "avatar": "/images/temp/sarah-clark.jpg",
+  "name": "RameshReddy Anthareddy",
+  "avatar": "/images/temp/lando.jpg",
   "dob": "1990-12-19",
   "plan": "Blue Options 346 All Copay",
   "gender": "Female",
@@ -102,6 +102,9 @@
           }
         }
       ]
+    },
+    {
+      "icon": "/images/icons/search.png"
     }
   ],
   "children": [
@@ -230,71 +233,68 @@
           "action": {
             "click": "expand"
           }
-        },{
-          "id": "interaction-1",
-          "date": "2016-03-01T13:15:00",
-          "type": "interaction",
-          "member": "Sara Clark",
-          "serviceRequest": "134123421",
-          "serviceAdvocate": {
-            "name": "Lando Carlisian",
-            "avatar": "/images/temp/lando.jpg"
-          },
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
-          "channel": "124123421"
         },
         {
-          "id": "interaction-2",
-          "date": "2016-03-01T13:15:00",
           "type": "interaction",
-          "member": "Sara Clark",
-          "serviceRequest": "134123421",
-          "serviceAdvocate": {
-            "name": "Lando Carlisian",
-            "avatar": "/images/temp/lando.jpg"
-          },
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
-          "channel": "124123421"
+          "id" : "576002d1820cec5674386ad5",
+          "avatar": "/images/temp/lando.jpg",
+          "individualConsumerId" : "58750301088",
+          "dateCreated" : "2015-01-01T08:19:36.000Z",
+          "dateLastUpdate" : "2015-01-01T08:25:33.000Z",
+          "channel" : "Telephone",
+          "rowId" : "1-6ZBHETE",
+          "refId" : "1-15196298306",
+          "topic" : "Referrals",
+          "subTopic" : "Referred to Prime",
+          "status" : "Closed",
+          "summary" : "e8cr\r\n01/01/2015\r\n\r\nP: Mbr. auth. ver. mbr. inquiring about rx cost and also calling to make a premium payment.\r\n\r\nA: Informed mbr. we exteneded a grace period of 30 days due to invoices being sent out late. Informed mbr. I would need to trans. her to M&B for prem. payment but they don't re-open until 9am Informed mbr. she can pay online also if she wntd. to make payment today. Mbr. understood. \r\n\r\nInformed mbr. for rx cost I would need to trans. her to Prime. Mbr. accepted. Informed mbr. of Prime Phone#800-642-6020\r\n\r\nR: Trans. mbr. to Prime",
+          "refSource" : "Siebel ",
+          "contractNumber" : "CONTRACT#",
+          "personNumber" : "01",
+          "hccId" : "HCCNUMBER",
+          "repName" : ["FASTMASTFOUR","GONZALEZ"]
         },
         {
-          "id": "interaction-3",
-          "date": "2016-03-01T13:15:00",
           "type": "interaction",
-          "member": "Sara Clark",
-          "serviceRequest": "134123421",
-          "serviceAdvocate": {
-            "name": "Lando Carlisian",
-            "avatar": "/images/temp/lando.jpg"
-          },
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
-          "channel": "124123421"
+          "id" : "576002d1820cec5674386ad6",
+          "avatar": "/images/temp/lando.jpg",
+          "individualConsumerId" : "98750075119",
+          "dateCreated" : "2015-01-01T08:28:45.000Z",
+          "dateLastUpdate" : "2015-01-12T15:40:40.000Z",
+          "channel" : "Telephone",
+          "rowId" : "1-6ZA4Q2C",
+          "refId" : "1-15194026740",
+          "topic" : "Maintain Billing",
+          "subTopic" : "Premium Payment Posted",
+          "status" : "Closed",
+          "summary" : "P: wife is callign into see if her husbands payment has posted . \r\nand what is the grace pariod . \r\nA: advd no auth rep .. only yes or no answers .. \r\npayment posted - no . \r\ngrace period is 90 days . \r\nadvd to speak to billign woudl need to get them tomorow at 9 am .. or wati till next week . \r\nR: provided all needed info to the mnbr . \r\ne5st",
+          "refSource" : "Siebel ",
+          "contractNumber" : "CONTRACT#",
+          "personNumber" : "01",
+          "hccId" : "HCCNUMBER",
+          "repName" : "LOWBUGFIVE SHINER"
         },
         {
-          "id": "interaction-4",
-          "date": "2016-03-01T13:15:00",
           "type": "interaction",
-          "member": "Sara Clark",
-          "serviceRequest": "134123421",
-          "serviceAdvocate": {
-            "name": "Lando Carlisian",
-            "avatar": "/images/temp/lando.jpg"
-          },
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
-          "channel": "124123421"
-        },
-        {
-          "id": "interaction-5",
-          "date": "2016-03-01T13:15:00",
-          "type": "interaction",
-          "member": "Sara Clark",
-          "serviceRequest": "134123421",
-          "serviceAdvocate": {
-            "name": "Lando Carlisian",
-            "avatar": "/images/temp/lando.jpg"
-          },
-          "notes": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae dapibus metus. Ut quis imperdiet velit. Integer tincidunt sit amet felis ut lacinia. Nunc nibh nisi, malesuada id pulvinar at, luctus a urna. Nulla facilisi. Quisque bibendum tempus sagittis. Proin eu sollicitudin elit, vitae scelerisque nisi.",
-          "channel": "124123421"
-        }]
+          "id" : "576002d1820cec5674386adc",
+          "avatar": "/images/temp/lando.jpg",
+          "individualConsumerId" : "26250111457",
+          "dateCreated" : "2015-01-01T09:17:23.000Z",
+          "dateLastUpdate" : "2015-01-02T14:17:35.000Z",
+          "channel" : "Electronic Inquiry",
+          "rowId" : "1-6ZB7ICB",
+          "refId" : "1-15195836315",
+          "topic" : "Request for Information",
+          "subTopic" : "Benefits",
+          "status" : "Closed",
+          "summary" : "Created by ECOMM Add SR//Hello,\r\nI just signed up for this insurtance through Obamacare, I am a little confused about the deductible of $2k, as when I signed up under the marketplace, I chose a silver plan and was entitled to an extra subsidy that would help pay for co pays & deductibles, please advise why it says I have a $2k deductible before anything including prescriptions are paid out?\r\n\r\nAlso, when is my premium due each month, I have gotten nothing about this, I know I paid Jan through the marketplace\r\n\r\nthank you!\r\n\r\n1/2/15 CRT-sending response to advs ded is $0 oop max is $2,000 advs to spk w/ market place for mroe info/d6nu",
+          "refSource" : "Siebel ",
+          "contractNumber" : "CONTRACT#",
+          "personNumber" : "01",
+          "hccId" : "HCCNUMBER",
+          "repName" : "ELENDOR HUBBARD"
+        }
+      ]
     }
   ]
 }

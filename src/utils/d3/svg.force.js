@@ -1,29 +1,35 @@
 import flatten from './flatten';
 import config from './forceConfig';
 import renderers from './svg.renderers';
-import cola from 'webcola';
+import betweenRect from './lineBetweenRect';
+import betweenCircle from './lineBetweenCircle';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
 class Force {
   constructor (data, size = [ document.documentElement.clientWidth, document.documentElement.clientHeight ]) {
     d3 = window.d3;
-    this.pageBounds = { x: 0, y: 0, width: size[ 0 ], height: size[ 1 ] };
     this.size = size;
+    this.center = {
+      x: size[0] / 2,
+      y: size[1] / 2,
+    };
     this.node = document.createElement('div');
-    this.nodes = flatten(data);
+    this.nodes = flatten(data, this.center);
     this.svg = d3.select(this.node).append('svg')
       .attr('width', size[ 0 ])
       .attr('height', size[ 1 ])
       .attr('class', 'force')
       .on('mount', ::this.mount);
-    this.boundingBox = this.svg.append('rect').attr('id', 'boundingBox').attr(this.pageBounds);
   }
 
   mount () {
-    this.d3cola = cola.d3adaptor()
-      .size(this.size)
+    this.force = d3.layout.force()
+      .gravity(config.gravity)
+      .friction(config.friction)
       .linkDistance(config.linkDistance)
-      .handleDisconnected(false);
+      .charge(config.charge)
+      .chargeDistance(config.chargeDistance)
+      .size(this.size);
 
     this.update();
   }
@@ -33,33 +39,26 @@ class Force {
     const svg = d3.select('svg');
     const nodes = this.nodes.filter((d) => !d.hidden);
     const links = d3.layout.tree().links(nodes).filter(l => !(l.source.hidden || l.target.hidden));
-    const realNodes = [ ...nodes ];
-    const topLeft = {
-      x: this.pageBounds.x,
-      y: this.pageBounds.y,
-      fixed: true,
-      fixedWeight: 1e6,
-    };
-    const tlIndex = nodes.push(topLeft) - 1;
-    const bottomRight = {
-      x: this.pageBounds.x + this.pageBounds.width,
-      y: this.pageBounds.y + this.pageBounds.height,
-      fixed: true,
-      fixedWeight: 1e6,
-    };
-    const brIndex = nodes.push(bottomRight) - 1;
 
-    this.d3cola
+    this.force
       .nodes(nodes)
       .links(links);
 
     const node = svg.selectAll('.node')
-      .data(realNodes, d => d.id);
+      .data(nodes, d => d.id);
 
-    const drag = this.d3cola.drag()
+    const drag = this.force.drag()
       .on('dragstart', ::this.dragstart)
       .on('drag', ::this.dragmove)
       .on('dragend', ::this.dragend);
+
+    const link = svg.selectAll('.link')
+      .data(links, l => `${l.target.id}-${l.source.id}`);
+
+    link.enter().append('path')
+      .attr('class', 'link');
+    link.exit().style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
+
     node.enter()
       .append('g')
       .attr('class', d => `node ${d.type || 'default'}`)
@@ -85,51 +84,38 @@ class Force {
           node.style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
         }
       });
-
-    const link = svg.selectAll('.link')
-      .data(links, l => `${l.target.id}-${l.source.id}`);
-
-    link.enter().append('path')
-      .attr('class', 'link');
-    link.exit().style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
-
-    const constraints = [];
-    realNodes.forEach((node, i) => {
-      constraints.push({ axis: 'x', type: 'separation', left: tlIndex, right: i, gap: node.width / 2 });
-      constraints.push({ axis: 'y', type: 'separation', left: tlIndex, right: i, gap: node.height / 2 });
-      constraints.push({ axis: 'x', type: 'separation', left: i, right: brIndex, gap: node.width / 2 });
-      constraints.push({ axis: 'y', type: 'separation', left: i, right: brIndex, gap: node.height / 2 });
-    });
-
-    this.d3cola
-      .constraints(constraints)
+    this.force
       .start();
 
-    this.d3cola.on('tick', () => {
-      node.each(function (d) {
-        d.innerBounds = d.bounds;
+    this.force.on('tick', () => {
+      var k = 0.15 * this.force.alpha();
+
+      node.filter(d => d.children && d.children.length === d._children.length).each(d => {
+        d.y += (this.center.y - d.y) * k;
+        d.x += (this.center.x - d.x) * k;
       });
 
-      node.attr('transform', d => `translate(${d.innerBounds.x},${d.innerBounds.y})`);
-
-      link.each(function (d) {
-        d.route = cola.vpsc.makeEdgeBetween(d.source.innerBounds, d.target.innerBounds, 1);
+      node.each(d => {
+        d.x = Math.max(Math.min(d.x, this.size[0] - d.width / 2), d.width / 2);
+        d.y = Math.max(Math.min(d.y, this.size[1] - d.height / 2), d.height / 2);
       });
 
-      // math is hard....
+      node.attr('transform', d => `translate(${d.x - d.width / 2},${d.y - d.height / 2})`);
+
       link.attr('d', function (d) {
-        const deltaX = d.target.x - d.source.x;
-        const deltaY = d.target.y - d.source.y;
-        const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-        const normX = deltaX / dist;
-        const normY = deltaY / dist;
-        const sourcePadding = d.source.radius;
-        const targetPadding = d.target.radius;
-        const sourceX = sourcePadding ? d.source.x + (sourcePadding * normX) : d.route.sourceIntersection.x;
-        const sourceY = sourcePadding ? d.source.y + (sourcePadding * normY) : d.route.sourceIntersection.y;
-        const targetX = targetPadding ? d.target.x - (targetPadding * normX) : d.route.targetIntersection.x;
-        const targetY = targetPadding ? d.target.y - (targetPadding * normY) : d.route.targetIntersection.y;
-        return 'M' + sourceX + ',' + sourceY + 'L' + targetX + ',' + targetY;
+        let s;
+        let t;
+        if (d.source.r || d.source.radius) {
+          s = betweenCircle(d.source, d.target);
+        } else {
+          s = betweenRect(d.source, d.target);
+        }
+        if (d.target.r || d.target.radius) {
+          t = betweenCircle(d.source, d.target);
+        } else {
+          t = betweenRect(d.source, d.target);
+        }
+        return 'M' + s.source.x + ',' + s.source.y + 'L' + t.target.x + ',' + t.target.y;
       });
 
       link.filter(d => d.target.children && d.target.children.length > 0)
@@ -148,19 +134,22 @@ class Force {
 
   dragmove (d, i) {
     if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
-      if (!d.detached && d3.event.x + d.width > this.pageBounds.width - 150) {
+      if (!d.detached && d3.event.x + d.width > this.size[0] - 150) {
         d._parent.children.splice(d._parent.children.indexOf(d), 1);
         d.parent = null;
+        d.fixed = true;
         d.detached = true;
         this.update();
-      } else if (d.detached && d3.event.x + d.width < this.pageBounds.width - 150) {
+      } else if (d.detached && d3.event.x + d.width < this.size[0] - 150) {
         if (d._parent.children) {
           d._parent.children.push(d);
         } else {
+          d._parent._children.push(d);
           d.hidden = true;
         }
         d.parent = d._parent;
         d.detached = false;
+        d.fixed = false;
         if (!d.pinable || d.hidden) {
           d3.select('.pin-area').style({display: 'none'});
         }

@@ -30,13 +30,19 @@ export default function (node, action, {x = 0, y = 0} = {}) {
       y: 7,
     });
 
-  menu = actionMenu(actn, action.menu, {x: 40})
-    .attr('visibility', 'hidden');
+  if (action.menu) {
+    menu = actionMenu(actn, action.menu, { x: 40 })
+      .attr('visibility', 'hidden');
+  }
 
   btn.on('click', function () {
-    node.selectAll('.action-menu').filter(function () { return !(this === menu[0][0]); })
-      .attr('visibility', 'hidden');
-    menu.attr('visibility', menu.attr('visibility') === 'hidden' ? 'visible' : 'hidden');
+    if (menu) {
+      node.selectAll('.action-menu').filter(function () {
+        return !(this === menu[ 0 ][ 0 ]);
+      })
+        .attr('visibility', 'hidden');
+      menu.attr('visibility', menu.attr('visibility') === 'hidden' ? 'visible' : 'hidden');
+    }
   });
 
   return actn;

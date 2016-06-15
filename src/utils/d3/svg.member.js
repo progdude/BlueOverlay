@@ -4,15 +4,17 @@ import labelValue from './svg.labelValue';
 import actions from './svg.actions';
 import dateFormat from 'date-format';
 
-const height = 210;
-const width = 275;
-
 export function enter (node, data) {
+  let height = 210;
+  let width = 95;
+
+  width += Math.max(165, data.name.length * 10 + 15);
+
   data.height = height;
   data.width = width;
 
   if (data.actions) {
-    actions(node, data.actions, {x: width - 5, y: 15});
+    actions(node, data.actions, {x: data.width - 5, y: 15});
   }
 
   const rect = node.append('rect')
