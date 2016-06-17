@@ -13,6 +13,8 @@ class Force {
       x: size[0] / 2,
       y: size[1] / 2,
     };
+    this.scale = 0.7;
+    this.relScale = 1 / this.scale;
     this.node = document.createElement('div');
     this.nodes = flatten(data, this.center);
     this.svg = d3.select(this.node).append('svg')
@@ -20,6 +22,10 @@ class Force {
       .attr('height', size[ 1 ])
       .attr('class', 'force')
       .on('mount', ::this.mount);
+
+    this.stage = this.svg.append('g')
+      .classed('stage', true)
+      .attr('transform', `scale(${this.scale})`);
   }
 
   mount () {
@@ -36,7 +42,7 @@ class Force {
 
   update () {
     const that = this;
-    const svg = d3.select('svg');
+    const svg = d3.select('.stage');
     const nodes = this.nodes.filter((d) => !d.hidden);
     const links = d3.layout.tree().links(nodes).filter(l => !(l.source.hidden || l.target.hidden));
 
@@ -64,6 +70,7 @@ class Force {
       .attr('class', d => `node ${d.type || 'default'}`)
       .each(function (d) {
         d.update = ::that.update;
+        d.scale = that.scale;
         const node = d3.select(this);
         if (d.type && renderers[ d.type ] && typeof renderers[ d.type ].enter === 'function') {
           renderers[ d.type ].enter(node, d);
@@ -88,16 +95,68 @@ class Force {
       .start();
 
     this.force.on('tick', () => {
-      var k = 0.15 * this.force.alpha();
+      const alpha = this.force.alpha();
+      const k = 0.15 * alpha;
 
       node.filter(d => d.children && d.children.length === d._children.length).each(d => {
-        d.y += (this.center.y - d.y) * k;
-        d.x += (this.center.x - d.x) * k;
+        d.y += (this.relScale * this.center.y - d.y) * k;
+        d.x += (this.relScale * this.center.x - d.x) * k;
+      });
+
+      node.filter(d => d.momentmun && !d.dragging).each(d => {
+        d.y += d.momentmun.y;
+        d.x += d.momentmun.x;
+        if (d.detached) {
+          d.py = d.y;
+          d.px = d.x;
+        }
+        d.momentmun.y *= alpha * 10;
+        d.momentmun.x *= alpha * 10;
       });
 
       node.each(d => {
-        d.x = Math.max(Math.min(d.x, this.size[0] - d.width / 2), d.width / 2);
-        d.y = Math.max(Math.min(d.y, this.size[1] - d.height / 2), d.height / 2);
+        const borders = {
+          x: {
+            max: this.relScale * this.size[0] - d.width / 2,
+            min: d.width / 2,
+          },
+          y: {
+            max: this.relScale * this.size[1] - d.height / 2,
+            min: d.height / 2,
+          },
+        };
+        d.x = Math.max(Math.min(d.x, borders.x.max), borders.x.min);
+        d.y = Math.max(Math.min(d.y, borders.y.max), borders.y.min);
+        if (d.momentmun && (d.x === borders.x.min || d.x === borders.x.max)) {
+          d.momentmun.x = 0;
+        }
+        if (d.momentmun && (d.y === borders.y.min || d.y === borders.y.max)) {
+          d.momentmun.y = 0;
+        }
+
+        if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
+          if (!d.detached && d.x + d.width > (this.relScale * this.size[0] - 150)) {
+            d._parent.children.splice(d._parent.children.indexOf(d), 1);
+            d.parent = null;
+            //d.fixed = true;
+            d.detached = true;
+            this.update();
+          } else if (d.detached && d.x + d.width < (this.relScale * this.size[0] - 150)) {
+            if (d._parent.children) {
+              d._parent.children.push(d);
+            } else {
+              d._parent._children.push(d);
+              d.hidden = true;
+            }
+            d.parent = d._parent;
+            d.detached = false;
+            //d.fixed = false;
+            if (!d.pinable || d.hidden) {
+              d3.select('.pin-area').style({display: 'none'});
+            }
+            this.update();
+          }
+        }
       });
 
       node.attr('transform', d => `translate(${d.x - d.width / 2},${d.y - d.height / 2})`);
@@ -127,39 +186,22 @@ class Force {
   }
 
   dragstart (d, i) {
+    d.dragging = true;
     if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
       d3.select('.pin-area').style({ display: 'block' });
     }
   }
 
   dragmove (d, i) {
-    if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
-      if (!d.detached && d3.event.x + d.width > this.size[0] - 150) {
-        d._parent.children.splice(d._parent.children.indexOf(d), 1);
-        d.parent = null;
-        d.fixed = true;
-        d.detached = true;
-        this.update();
-      } else if (d.detached && d3.event.x + d.width < this.size[0] - 150) {
-        if (d._parent.children) {
-          d._parent.children.push(d);
-        } else {
-          d._parent._children.push(d);
-          d.hidden = true;
-        }
-        d.parent = d._parent;
-        d.detached = false;
-        d.fixed = false;
-        if (!d.pinable || d.hidden) {
-          d3.select('.pin-area').style({display: 'none'});
-        }
-        this.update();
-      }
-    }
+    d.momentmun = {
+      x: d3.event.dx,
+      y: d3.event.dy,
+    };
   }
 
   dragend (d, i) {
     d3.select('.pin-area').style({display: 'none'});
+    d.dragging = false;
   }
 }
 

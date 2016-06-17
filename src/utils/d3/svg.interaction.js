@@ -54,6 +54,11 @@ export function enter (node, data) {
 
   fo.append('xhtml:div')
     .classed('html', true)
+    .style({
+      height: `${data.scale * 100}%`,
+      width: `${data.scale * 100}%`,
+      'font-size': `${data.scale}em`,
+    })
     .html(data.summary);
 
   details.push(fo);
