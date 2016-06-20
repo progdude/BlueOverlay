@@ -144,3 +144,40 @@ line.hr{
   stroke: #ccc;
   stroke-width: 1px;
 }
+
+
+section.force{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  font-size: 80%;
+}
+.force {
+  color: #fff;
+  .avatar{
+    border-radius: 5px;
+  }
+  div.node {
+    position: absolute;
+  }
+  div.node.member {
+    background-color: #2E9E57;
+    padding: 15px;
+    border-radius: 5px;
+    .avatar{
+      border: 2px solid;
+    }
+    .lead {
+      font-size: 1.2em;
+      font-weight: 400;
+    }
+  }
+  .label {
+    margin: 0;
+    padding: 0;
+  }
+  .row{
+    margin-bottom: 1em;
+  }
+}
+

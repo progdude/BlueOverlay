@@ -1,5 +1,5 @@
-import performAction from './performAction';
-import labelValue from './svg.labelValue';
+import performAction from '../performAction';
+import labelValue from './labelValue';
 
 const r = 75;
 

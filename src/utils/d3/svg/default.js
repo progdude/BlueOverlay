@@ -1,4 +1,4 @@
-import performAction from './performAction';
+import performAction from '../performAction';
 
 const r = 75;
 const cir = {

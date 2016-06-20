@@ -1,4 +1,4 @@
-import menuItem from './svg.action.menu.item';
+import menuItem from './action.menu.item';
 
 const menuTipX = 20;
 

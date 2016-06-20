@@ -1,0 +1,215 @@
+import flatten from '../flatten';
+import config from '../forceConfig';
+import renderers from './renderers';
+import betweenRect from '../lineBetweenRect';
+import betweenCircle from '../lineBetweenCircle';
+let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
+
+class Force {
+  constructor (data, size = [ document.documentElement.clientWidth, document.documentElement.clientHeight ]) {
+    d3 = window.d3;
+    this.size = size;
+    this.center = {
+      x: size[0] / 2,
+      y: size[1] / 2,
+    };
+    this.scale = 1;
+    this.relScale = 1 / this.scale;
+    this.node = document.createElement('div');
+    this.nodes = flatten(data, this.center);
+    this.container = d3.select(this.node).append('section')
+      .attr('class', 'force')
+      .on('mount', ::this.mount);
+
+    this.stage = this.container.append('div')
+      .classed('stage', true)
+      .style('transform', `scale(${this.scale})`);
+  }
+
+  mount () {
+    this.force = d3.layout.force()
+      .gravity(config.gravity)
+      .friction(config.friction)
+      .linkDistance(config.linkDistance)
+      .charge(config.charge)
+      .chargeDistance(config.chargeDistance)
+      .size(this.size);
+
+    this.update();
+  }
+
+  update () {
+    const that = this;
+    const stage = d3.select('.stage');
+    const nodes = this.nodes.filter((data) => !data.hidden);
+    const links = d3.layout.tree().links(nodes).filter(link => !(link.source.hidden || link.target.hidden));
+
+    this.force
+      .nodes(nodes)
+      .links(links);
+
+    const node = stage.selectAll('.node')
+      .data(nodes, data => data.id);
+
+    const drag = this.force.drag()
+      .on('dragstart', ::this.dragstart)
+      .on('drag', ::this.dragmove)
+      .on('dragend', ::this.dragend);
+
+    const link = stage.selectAll('.link')
+      .data(links, link => `${link.target.id}-${link.source.id}`);
+
+    //link.enter().append('path')
+    //  .attr('class', 'link');
+    link.exit().style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
+
+    node.enter()
+      .append('div')
+      .attr('class', data => `node ${data.type || 'default'}`)
+      .each(function (data) {
+        data.update = ::that.update;
+        data.scale = that.scale;
+        const node = d3.select(this);
+        if (data.type && renderers[ data.type ] && typeof renderers[ data.type ].enter === 'function') {
+          renderers[ data.type ].enter(node, data);
+        } else if (renderers.default && typeof renderers.default.enter === 'function') {
+          renderers.default.enter(node, data);
+        }
+      })
+      .call(drag);
+
+    node.exit()
+      .each(function (data) {
+        const node = d3.select(this);
+        if (data.type && renderers[ data.type ] && typeof renderers[ data.type ].exit === 'function') {
+          renderers[ data.type ].exit(node, data);
+        } else if (renderers.default && typeof renderers.default.exit === 'function') {
+          renderers.default.exit(node, data);
+        } else {
+          node.style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
+        }
+      });
+    this.force
+      .start();
+
+    this.force.on('tick', () => {
+      const that = this;
+      const alpha = that.force.alpha();
+      const speedMultipler = 0.25 * alpha;
+
+      node.filter(data => data.children && data.children.length === data._children.length).each(data => {
+        data.y += (that.relScale * that.center.y - data.y) * speedMultipler;
+        data.x += (that.relScale * that.center.x - data.x) * speedMultipler;
+      });
+
+      node.filter(data => data.momentmun && !data.dragging).each(data => {
+        data.y += data.momentmun.y;
+        data.x += data.momentmun.x;
+        if (data.detached) {
+          data.py = data.y;
+          data.px = data.x;
+        }
+        data.momentmun.y *= alpha * 10;
+        data.momentmun.x *= alpha * 10;
+      });
+
+      node.each(function (data) {
+        if (!data.height) {
+          data.height = this.clientHeight;
+        }
+        if (!data.width) {
+          data.width = this.clientWidth;
+        }
+        const borders = {
+          x: {
+            max: that.relScale * that.size[0] - data.width / 2,
+            min: data.width / 2,
+          },
+          y: {
+            max: that.relScale * that.size[1] - data.height / 2,
+            min: data.height / 2,
+          },
+        };
+        data.x = Math.max(Math.min(data.x, borders.x.max), borders.x.min);
+        data.y = Math.max(Math.min(data.y, borders.y.max), borders.y.min);
+        if (data.momentmun && (data.x === borders.x.min || data.x === borders.x.max)) {
+          data.momentmun.x = 0;
+        }
+        if (data.momentmun && (data.y === borders.y.min || data.y === borders.y.max)) {
+          data.momentmun.y = 0;
+        }
+
+        if ((data.detached || data.pinable) && !data.hidden && (!data.children || data.children.length === 0)) {
+          if (!data.detached && data.x + data.width > (that.relScale * that.size[0] - 150)) {
+            data._parent.children.splice(data._parent.children.indexOf(data), 1);
+            data.parent = null;
+            // data.fixed = true;
+            data.detached = true;
+            that.update();
+          } else if (data.detached && data.x + data.width < (that.relScale * that.size[0] - 150)) {
+            if (data._parent.children) {
+              data._parent.children.push(data);
+            } else {
+              data._parent._children.push(data);
+              data.hidden = true;
+            }
+            data.parent = data._parent;
+            data.detached = false;
+            // data.fixed = false;
+            if (!data.pinable || data.hidden) {
+              d3.select('.pin-area').style({display: 'none'});
+            }
+            that.update();
+          }
+        }
+      });
+
+      node.style({
+        transform: data => `translate(${data.x - data.width / 2}px,${data.y - data.height / 2}px)`,
+      });
+
+      link.attr('d', function (data) {
+        let source;
+        let target;
+        if (data.source.r || data.source.radius) {
+          source = betweenCircle(data.source, data.target);
+        } else {
+          source = betweenRect(data.source, data.target);
+        }
+        if (data.target.r || data.target.radius) {
+          target = betweenCircle(data.source, data.target);
+        } else {
+          target = betweenRect(data.source, data.target);
+        }
+        return 'M' + source.source.x + ',' + source.source.y + 'L' + target.target.x + ',' + target.target.y;
+      });
+
+      link.filter(data => data.target.children && data.target.children.length > 0)
+        .classed('back', true);
+
+      link.filter(data => !(data.target.children && data.target.children.length > 0))
+        .classed('back', false);
+    });
+  }
+
+  dragstart (data, nodeIndex) {
+    data.dragging = true;
+    if ((data.detached || data.pinable) && !data.hidden && (!data.children || data.children.length === 0)) {
+      d3.select('.pin-area').style({ display: 'block' });
+    }
+  }
+
+  dragmove (data, nodeIndex) {
+    data.momentmun = {
+      x: d3.event.dx,
+      y: d3.event.dy,
+    };
+  }
+
+  dragend (data, nodeIndex) {
+    d3.select('.pin-area').style({display: 'none'});
+    data.dragging = false;
+  }
+}
+
+export default Force;

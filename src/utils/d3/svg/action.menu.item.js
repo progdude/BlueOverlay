@@ -1,4 +1,4 @@
-import performAction from './performAction';
+import performAction from '../performAction';
 
 export default function (node, data, {x = 0, y = 0} = {}, {height = 35, width = 115} = {}) {
   const mi = node.append('g')

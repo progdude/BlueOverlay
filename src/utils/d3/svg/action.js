@@ -1,4 +1,4 @@
-import actionMenu from './svg.action.menu';
+import actionMenu from './action.menu';
 
 export default function (node, action, {x = 0, y = 0} = {}) {
   var menu;

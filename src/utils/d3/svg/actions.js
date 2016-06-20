@@ -1,4 +1,4 @@
-import action from './svg.action';
+import action from './action';
 
 export default function (node, actions, {x = 0, y = 0} = {}) {
   const actns = node.append('g')

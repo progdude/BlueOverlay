@@ -1,6 +1,6 @@
-import { hr } from './svg.utils';
-import labelValue from './svg.labelValue';
-import avatar from './svg.avatar';
+import { hr } from './utils';
+import labelValue from './labelValue';
+import avatar from './avatar';
 import dateFormat from 'date-format';
 
 const r = 75;

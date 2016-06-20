@@ -1,8 +1,8 @@
-import flatten from './flatten';
-import config from './forceConfig';
-import renderers from './svg.renderers';
-import betweenRect from './lineBetweenRect';
-import betweenCircle from './lineBetweenCircle';
+import flatten from '../flatten';
+import config from '../forceConfig';
+import renderers from './renderers';
+import betweenRect from '../lineBetweenRect';
+import betweenCircle from '../lineBetweenCircle';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
 class Force {

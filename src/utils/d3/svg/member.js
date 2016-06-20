@@ -1,7 +1,7 @@
-import performAction from './performAction';
-import avatar from './svg.avatar';
-import labelValue from './svg.labelValue';
-import actions from './svg.actions';
+import performAction from '../performAction';
+import avatar from './avatar';
+import labelValue from './labelValue';
+import actions from './actions';
 import dateFormat from 'date-format';
 
 export function enter (node, data) {
