@@ -1,10 +1,10 @@
 import React from 'react';
-import menuItem from './action.menu.item';
+import MenuItem from './action.menu.item';
 
 export default function (menuItems) {
   return (
-    <ul className='menu-item' style={{display: 'none'}}>
-      {menuItems.map(menuItem)}
+    <ul className='menu-item'>
+      {menuItems.map((menuItem, index) => <MenuItem key={`menuItem_${index}`} menuItem={menuItem} />)}
     </ul>
   );
 }

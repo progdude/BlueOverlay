@@ -5,7 +5,7 @@ import classes from './Header.scss';
 export const Header = () => (
   <div className={classes.header}>
     <Link to='/member' className={classes.headerBtn}>
-      <img src='/images/icons/search.png' />
+      <img src='/images/icons/home.png' />
     </Link>
     <Link to='/member' className={classes.headerBtn}>
       <img src='/images/icons/log-off.png' />

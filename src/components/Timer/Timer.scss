@@ -1,0 +1,19 @@
+.timer{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.digit{
+  display: inline-block;
+  background: linear-gradient(to bottom, #c7c8ca 0%,#c7c8ca 50%,#d7d8d9 50%,#d7d8d9 100%);
+  color: #d15a6b;
+  font-size: 2em;
+  width: 1em;
+  text-align: center;
+  border-radius: 6px;
+  margin-right: 3px;
+  &:nth-child(2n){
+    margin-right: 8px;
+  }
+}

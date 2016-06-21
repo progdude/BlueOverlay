@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import actionMenu from './action.menu';
 
-export default function (action) {
-  let menuDisplaying = false;
-  return (
-    <div className='action'>
-      <button className='action-btn' onClick={clickHandler}>
-        <img src={action.icon} alt='' />
-      </button>
-      {action.menu && actionMenu(action.menu)}
-    </div>
-  );
+class Action extends Component {
+  static propTypes = {
+    action: PropTypes.object,
+  };
 
-  function clickHandler () {
-    const btn = this;
-    const menu = btn.querySelector('.action-menu');
-    if (menuDisplaying) {
-      window.d3.selectAll('.action-menu')
-        .filter(function () {
-          return !(menu === this);
-        })
-        .attr('display', 'none');
-      menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+  constructor (props) {
+    super(props);
+
+    this.state = {
+      menuDisplaying: false,
+    };
+    this.clickHandler = this.clickHandler.bind(this);
+  }
+  render () {
+    return (
+      <div className='action'>
+        <button className='action-btn' onClick={this.clickHandler}>
+          <img src={this.props.action.icon} alt='' />
+        </button>
+        {this.props.action.menu && this.state.menuDisplaying && actionMenu(this.props.action.menu)}
+      </div>
+    );
+  }
+
+  clickHandler () {
+    if (!(window.d3.event && window.d3.event.defaultPrevented)) {
+      this.setState({ menuDisplaying: !this.state.menuDisplaying });
     }
   }
 }
+
+export default Action;

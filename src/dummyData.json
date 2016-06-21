@@ -115,6 +115,23 @@
       "action": {
         "click": "expand"
       },
+      "navigation": {
+        "type": "nav",
+        "id": "nav-0",
+        "label": "Specialist Care",
+        "children": [
+          {
+            "type": "nav",
+            "id": "nav-1",
+            "label": "PCP"
+          },
+          {
+            "type": "nav",
+            "id": "nav-2",
+            "label": "Wellness"
+          }
+        ]
+      },
       "children": []
     },
     {
@@ -228,7 +245,7 @@
       },
       "children": [{
           "id": "more-interactions",
-          "label": ["View more", "interactions"],
+          "label": "View more interactions",
           "icon": "/images/icons/plus.png",
           "action": {
             "click": "expand"
@@ -252,7 +269,7 @@
           "contractNumber" : "CONTRACT#",
           "personNumber" : "01",
           "hccId" : "HCCNUMBER",
-          "repName" : ["FASTMASTFOUR","GONZALEZ"]
+          "repName" : "FASTMASTFOUR GONZALEZ"
         },
         {
           "type": "interaction",

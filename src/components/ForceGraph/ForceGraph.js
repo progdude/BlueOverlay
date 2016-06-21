@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import nodes from 'dummyData.json';
+import node from 'dummyData.json';
 import Force from 'utils/d3/html/force';
+import SvgDefs from 'utils/d3/svg/defs';
 import rd3 from 'react-d3-library';
 import classes from './ForceGraph.scss';
 const RD3Component = rd3.Component;
@@ -14,8 +15,9 @@ class ForceGraph extends Component {
   }
 
   componentDidMount () {
-    const graph = new Force(nodes);
-
+    const graph = new Force(node);
+    const svgDefs = new SvgDefs(graph.svgStage);
+    svgDefs.avatarClip().startArrow().endCircle();
     this.setState({d3: graph.node});
   }
 

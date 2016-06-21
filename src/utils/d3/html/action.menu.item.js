@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import performAction from '../performAction';
 
-export default function (data) {
+function MenuItem ({ menuItem }) {
   return (
     <li
-      className={`acction-menu-item${data.icon && ' has-icon' || ''}`}
-      onClick={data.action.click && performAction(data.action.click, data)}
+      className={`action-menu-item${menuItem.icon && ' has-icon' || ''}`}
+      onClick={menuItem.action.click && performAction(menuItem.action.click, menuItem)}
     >
-      {data.icon && <img src={data.icon} className='menu-icon' />} {data.label}
+      {menuItem.icon && <img src={menuItem.icon} className='menu-icon' />} {menuItem.label}
     </li>
   );
 }
+
+MenuItem.propTypes = {
+  menuItem: PropTypes.object,
+};
+
+export default MenuItem;

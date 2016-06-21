@@ -16,9 +16,17 @@ export default function flatten (root, {x, y}) {
       node.y = y;
     }
     if (node._children) node._children.forEach(n => recurse(n, node));
+    if (node.navigation) {
+      recurse(node.navigation, node);
+      node.navigation.fixed = true;
+      node.navigation.x = 0;
+      node.navigation.y = y * 2;
+      node.navigation.hidden = true;
+    }
     nodes.push(node);
   };
 
   recurse(root);
+
   return nodes;
 }

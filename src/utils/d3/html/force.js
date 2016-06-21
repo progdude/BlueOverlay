@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import flatten from '../flatten';
 import config from '../forceConfig';
 import renderers from './renderers';
@@ -6,13 +8,20 @@ import betweenCircle from '../lineBetweenCircle';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
 class Force {
-  constructor (data, size = [ document.documentElement.clientWidth, document.documentElement.clientHeight ]) {
-    d3 = window.d3;
-    this.size = size;
-    this.center = {
+  constructor (
+    data,
+    size = [
+      document.documentElement.clientWidth,
+      document.documentElement.clientHeight
+    ],
+    center = {
       x: size[0] / 2,
       y: size[1] / 2,
-    };
+    }
+  ) {
+    d3 = window.d3;
+    this.size = size;
+    this.center = center;
     this.scale = 1;
     this.relScale = 1 / this.scale;
     this.node = document.createElement('div');
@@ -21,6 +30,13 @@ class Force {
       .attr('class', 'force')
       .on('mount', ::this.mount);
 
+    this.svgStage = this.container.append('svg')
+      .classed('svgStage', true)
+      .style('transform', `scale(${this.scale})`)
+      .attr({
+        width: size[0],
+        height: size[1],
+      });
     this.stage = this.container.append('div')
       .classed('stage', true)
       .style('transform', `scale(${this.scale})`);
@@ -30,7 +46,12 @@ class Force {
     this.force = d3.layout.force()
       .gravity(config.gravity)
       .friction(config.friction)
-      .linkDistance(config.linkDistance)
+      .linkDistance((data) => {
+        if (data.source.type === 'nav') {
+          return 100;
+        }
+        return config.linkDistance;
+      })
       .charge(config.charge)
       .chargeDistance(config.chargeDistance)
       .size(this.size);
@@ -41,6 +62,7 @@ class Force {
   update () {
     const that = this;
     const stage = d3.select('.stage');
+    const svgStage = d3.select('svg');
     const nodes = this.nodes.filter((data) => !data.hidden);
     const links = d3.layout.tree().links(nodes).filter(link => !(link.source.hidden || link.target.hidden));
 
@@ -56,24 +78,26 @@ class Force {
       .on('drag', ::this.dragmove)
       .on('dragend', ::this.dragend);
 
-    const link = stage.selectAll('.link')
+    const link = svgStage.selectAll('.link')
       .data(links, link => `${link.target.id}-${link.source.id}`);
 
-    //link.enter().append('path')
-    //  .attr('class', 'link');
+    link.enter().append('path')
+      .attr('class', 'link');
     link.exit().style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
 
     node.enter()
       .append('div')
-      .attr('class', data => `node ${data.type || 'default'}`)
+      .attr('class', 'node')
       .each(function (data) {
         data.update = ::that.update;
         data.scale = that.scale;
-        const node = d3.select(this);
+        data.assign = updates => Object.assign(data, updates);
+        data.resume = ::that.force.resume;
         if (data.type && renderers[ data.type ] && typeof renderers[ data.type ].enter === 'function') {
-          renderers[ data.type ].enter(node, data);
+          const Node = renderers[ data.type ].enter;
+          ReactDOM.render(<Node {...data} />, this);
         } else if (renderers.default && typeof renderers.default.enter === 'function') {
-          renderers.default.enter(node, data);
+          ReactDOM.render(renderers.default.enter(data), this);
         }
       })
       .call(drag);
@@ -97,10 +121,11 @@ class Force {
       const alpha = that.force.alpha();
       const speedMultipler = 0.25 * alpha;
 
-      node.filter(data => data.children && data.children.length === data._children.length).each(data => {
-        data.y += (that.relScale * that.center.y - data.y) * speedMultipler;
-        data.x += (that.relScale * that.center.x - data.x) * speedMultipler;
-      });
+      node.filter(data => data.children && data.children.length === data._children.length && data.type !== 'nav')
+        .each(data => {
+          data.y += (that.relScale * that.center.y - data.y) * speedMultipler;
+          data.x += (that.relScale * that.center.x - data.x) * speedMultipler;
+        });
 
       node.filter(data => data.momentmun && !data.dragging).each(data => {
         data.y += data.momentmun.y;
@@ -114,11 +139,10 @@ class Force {
       });
 
       node.each(function (data) {
-        if (!data.height) {
-          data.height = this.clientHeight;
-        }
-        if (!data.width) {
-          data.width = this.clientWidth;
+        data.height = this.offsetHeight || this.clientHeight;
+        data.width = this.offsetWidth || this.clientWidth;
+        if (data.r && data.height) {
+          data.radius = data.height / 2;
         }
         const borders = {
           x: {
@@ -171,12 +195,12 @@ class Force {
       link.attr('d', function (data) {
         let source;
         let target;
-        if (data.source.r || data.source.radius) {
+        if (data.source.r) {
           source = betweenCircle(data.source, data.target);
         } else {
           source = betweenRect(data.source, data.target);
         }
-        if (data.target.r || data.target.radius) {
+        if (data.target.r) {
           target = betweenCircle(data.source, data.target);
         } else {
           target = betweenRect(data.source, data.target);
