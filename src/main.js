@@ -5,6 +5,9 @@ import { useRouterHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import createStore from './store/createStore';
 import AppContainer from './containers/AppContainer';
+// easy way
+import treeData from './dummyData.json'; // TODO: Remove (also: line below, line 27, and thing in reducer)
+import normalizedNodes from './normalizedData.json'; // TODO: Remove
 
 // ========================================================
 // Browser History Setup
@@ -20,7 +23,8 @@ const browserHistory = useRouterHistory(createBrowserHistory)({
 // react-router-redux reducer under the routerKey "router" in src/routes/index.js,
 // so we need to provide a custom `selectLocationState` to inform
 // react-router-redux of its location.
-const initialState = window.___INITIAL_STATE__;
+const initialState = window.___INITIAL_STATE__ || {};
+initialState.nodes = {tree: treeData, nodes: normalizedNodes}; // TODO: Remove
 const store = createStore(initialState, browserHistory);
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: (state) => state.router

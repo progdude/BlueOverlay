@@ -1,120 +1,9 @@
 {
   "type": "member",
   "id": "01082331243",
-  "relation": "member",
-  "hccid": "VMDH23180232",
-  "name": "RameshReddy Anthareddy",
-  "avatar": "/images/temp/lando.jpg",
-  "dob": "1990-12-19",
-  "plan": "Blue Options 346 All Copay",
-  "gender": "Female",
-  "segment": "Group",
-  "phi": true,
-  "address": {
-    "street": "1234 Main Street",
-    "city": "Jacksonville",
-    "state": "FL",
-    "zip": "32256"
-  },
-  "action": {
-    "click": "expand"
-  },
-  "actions": [
-    {
-      "icon": "/images/icons/plans.png",
-      "menu": [
-        {
-          "label": "Health",
-          "icon": "/images/icons/health.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Dental",
-          "icon": "/images/icons/dental.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Vision",
-          "icon": "/images/icons/vision.png",
-          "action": {
-            "click": "navigate"
-          }
-        }
-      ]
-    },
-    {
-      "icon": "/images/icons/dependents.png",
-      "menu": [
-        {
-          "label": "Tyreese Clark (spouse)",
-          "icon": "/images/icons/shield.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Andrew Clark (child)",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Laura Clark (child)",
-          "action": {
-            "click": "navigate"
-          }
-        }
-      ]
-    },
-    {
-      "icon": "/images/icons/quick-links.png",
-      "menu": [
-        {
-          "label": "Order ID cards",
-          "icon": "/images/icons/id-card.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Make payment",
-          "icon": "/images/icons/payment.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Emulate member",
-          "icon": "/images/icons/emulate-member.png",
-          "action": {
-            "click": "navigate"
-          }
-        },
-        {
-          "label": "Search for provider",
-          "icon": "/images/icons/search-for-provider.png",
-          "action": {
-            "click": "navigate"
-          }
-        }
-      ]
-    },
-    {
-      "icon": "/images/icons/search.png"
-    }
-  ],
   "children": [
     {
       "id": "benefits",
-      "label": "Benefits",
-      "icon": "/images/icons/benefits.png",
-      "action": {
-        "click": "expand"
-      },
       "navigation": {
         "type": "nav",
         "id": "nav-0",
@@ -131,185 +20,56 @@
             "label": "Wellness"
           }
         ]
-      },
-      "children": []
+      }
     },
     {
       "id": "claims",
-      "label": "Claims",
-      "icon": "/images/icons/claims.png",
-      "action": {
-        "click": "expand"
-      },
-      "children": [{
-          "id": "claim-1",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-2",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-3",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-4",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-5",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-6",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-7",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-8",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-9",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        },
-        {
-          "id": "claim-10",
-          "label": "Claim",
-          "icon": "/images/icons/claims.png"
-        }
+      "children": [
+        {"id": "claim-1"},
+        {"id": "claim-2"},
+        {"id": "claim-3"},
+        {"id": "claim-4"},
+        {"id": "claim-5"},
+        {"id": "claim-6"},
+        {"id": "claim-7"},
+        {"id": "claim-8"},
+        {"id": "claim-9"},
+        {"id": "claim-10"}
       ]
     },
     {
       "id": "addresses",
-      "label": "Addresses",
-      "icon": "/images/icons/envelope.png",
-      "action": {
-        "click": "expand"
-      },
       "children": [
         {
           "id": "primary-address",
-          "type": "address",
-          "label": "Primary",
-          "address": {
-            "street": "1234 Main Street",
-            "city": "Jacksonville",
-            "state": "FL",
-            "zip": "32256"
-          }
+          "type": "address"
         },
         {
           "id": "correspondence-address",
-          "type": "address",
-          "label": "Correspondence",
-          "address": {
-            "street": "1234 Main Street",
-            "city": "Jacksonville",
-            "state": "FL",
-            "zip": "32256"
-          }
+          "type": "address"
         },
         {
           "id": "care-facility-address",
-          "type": "address",
-          "label": "Care facility",
-          "address": {
-            "street": "1234 Main Street",
-            "city": "Jacksonville",
-            "state": "FL",
-            "zip": "32256"
-          }
+          "type": "address"
         }
       ]
     },
     {
       "id": "last-interactions",
-      "label": "Last Interactions",
-      "icon": "/images/icons/phone.png",
-      "action": {
-        "click": "expand"
-      },
       "children": [{
-          "id": "more-interactions",
-          "label": "View more interactions",
-          "icon": "/images/icons/plus.png",
-          "action": {
-            "click": "expand"
-          }
+          "id": "more-interactions"
         },
         {
           "type": "interaction",
-          "id" : "576002d1820cec5674386ad5",
-          "avatar": "/images/temp/lando.jpg",
-          "individualConsumerId" : "58750301088",
-          "dateCreated" : "2015-01-01T08:19:36.000Z",
-          "dateLastUpdate" : "2015-01-01T08:25:33.000Z",
-          "channel" : "Telephone",
-          "rowId" : "1-6ZBHETE",
-          "refId" : "1-15196298306",
-          "topic" : "Referrals",
-          "subTopic" : "Referred to Prime",
-          "status" : "Closed",
-          "summary" : "e8cr\r\n01/01/2015\r\n\r\nP: Mbr. auth. ver. mbr. inquiring about rx cost and also calling to make a premium payment.\r\n\r\nA: Informed mbr. we exteneded a grace period of 30 days due to invoices being sent out late. Informed mbr. I would need to trans. her to M&B for prem. payment but they don't re-open until 9am Informed mbr. she can pay online also if she wntd. to make payment today. Mbr. understood. \r\n\r\nInformed mbr. for rx cost I would need to trans. her to Prime. Mbr. accepted. Informed mbr. of Prime Phone#800-642-6020\r\n\r\nR: Trans. mbr. to Prime",
-          "refSource" : "Siebel ",
-          "contractNumber" : "CONTRACT#",
-          "personNumber" : "01",
-          "hccId" : "HCCNUMBER",
-          "repName" : "FASTMASTFOUR GONZALEZ"
+          "id" : "576002d1820cec5674386ad5"
         },
         {
           "type": "interaction",
-          "id" : "576002d1820cec5674386ad6",
-          "avatar": "/images/temp/lando.jpg",
-          "individualConsumerId" : "98750075119",
-          "dateCreated" : "2015-01-01T08:28:45.000Z",
-          "dateLastUpdate" : "2015-01-12T15:40:40.000Z",
-          "channel" : "Telephone",
-          "rowId" : "1-6ZA4Q2C",
-          "refId" : "1-15194026740",
-          "topic" : "Maintain Billing",
-          "subTopic" : "Premium Payment Posted",
-          "status" : "Closed",
-          "summary" : "P: wife is callign into see if her husbands payment has posted . \r\nand what is the grace pariod . \r\nA: advd no auth rep .. only yes or no answers .. \r\npayment posted - no . \r\ngrace period is 90 days . \r\nadvd to speak to billign woudl need to get them tomorow at 9 am .. or wati till next week . \r\nR: provided all needed info to the mnbr . \r\ne5st",
-          "refSource" : "Siebel ",
-          "contractNumber" : "CONTRACT#",
-          "personNumber" : "01",
-          "hccId" : "HCCNUMBER",
-          "repName" : "LOWBUGFIVE SHINER"
+          "id" : "576002d1820cec5674386ad6"
         },
         {
           "type": "interaction",
-          "id" : "576002d1820cec5674386adc",
-          "avatar": "/images/temp/lando.jpg",
-          "individualConsumerId" : "26250111457",
-          "dateCreated" : "2015-01-01T09:17:23.000Z",
-          "dateLastUpdate" : "2015-01-02T14:17:35.000Z",
-          "channel" : "Electronic Inquiry",
-          "rowId" : "1-6ZB7ICB",
-          "refId" : "1-15195836315",
-          "topic" : "Request for Information",
-          "subTopic" : "Benefits",
-          "status" : "Closed",
-          "summary" : "Created by ECOMM Add SR//Hello,\r\nI just signed up for this insurtance through Obamacare, I am a little confused about the deductible of $2k, as when I signed up under the marketplace, I chose a silver plan and was entitled to an extra subsidy that would help pay for co pays & deductibles, please advise why it says I have a $2k deductible before anything including prescriptions are paid out?\r\n\r\nAlso, when is my premium due each month, I have gotten nothing about this, I know I paid Jan through the marketplace\r\n\r\nthank you!\r\n\r\n1/2/15 CRT-sending response to advs ded is $0 oop max is $2,000 advs to spk w/ market place for mroe info/d6nu",
-          "refSource" : "Siebel ",
-          "contractNumber" : "CONTRACT#",
-          "personNumber" : "01",
-          "hccId" : "HCCNUMBER",
-          "repName" : "ELENDOR HUBBARD"
+          "id" : "576002d1820cec5674386adc"
         }
       ]
     }

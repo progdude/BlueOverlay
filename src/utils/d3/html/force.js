@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import flatten from '../flatten';
 import config from '../forceConfig';
 import renderers from './renderers';
 import betweenRect from '../lineBetweenRect';
 import betweenCircle from '../lineBetweenCircle';
+import { getStore } from '../../../store/createStore';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
+
+const store = getStore();
 
 class Force {
   constructor (
@@ -93,12 +97,11 @@ class Force {
         data.scale = that.scale;
         data.assign = updates => Object.assign(data, updates);
         data.resume = ::that.force.resume;
+        let Node = renderers.default.enter;
         if (data.type && renderers[ data.type ] && typeof renderers[ data.type ].enter === 'function') {
-          const Node = renderers[ data.type ].enter;
-          ReactDOM.render(<Node {...data} />, this);
-        } else if (renderers.default && typeof renderers.default.enter === 'function') {
-          ReactDOM.render(renderers.default.enter(data), this);
+          Node = renderers[ data.type ].enter;
         }
+        ReactDOM.render(<Provider store={store}><Node {...data} /></Provider>, this);
       })
       .call(drag);
 

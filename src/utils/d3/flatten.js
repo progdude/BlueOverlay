@@ -1,7 +1,7 @@
 export default function flatten (root, {x, y}) {
   const nodes = [];
   const recurse = (node, parent) => {
-    node._children = node.children;
+    node._children = node.children || [];
     if (parent) {
       const init = parent._children.indexOf(node);
       node.x = ((init % 4) * (x / 2)) + 300;

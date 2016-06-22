@@ -3,7 +3,13 @@ import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import makeRootReducer from './reducers';
 
-export default (initialState = {}, history) => {
+const stores = {};
+
+export const getStore = (storeKey = 'main') => stores[storeKey];
+
+export default (initialState = {}, history, storeKey = 'main') => {
+  if (stores[storeKey]) return stores[storeKey];
+
   // ======================================================
   // Middleware Configuration
   // ======================================================
@@ -39,6 +45,8 @@ export default (initialState = {}, history) => {
       store.replaceReducer(reducers);
     });
   }
+
+  stores[storeKey] = store;
 
   return store;
 };
