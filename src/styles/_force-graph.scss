@@ -284,6 +284,13 @@ section.force{
     }
   }
 
+  .address{
+    @extend .default;
+    .node-label{
+      margin-bottom: 15px;
+    }
+  }
+
   .interaction{
     @extend .default;
     font-size: .85em;

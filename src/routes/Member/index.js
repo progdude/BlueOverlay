@@ -1,5 +1,5 @@
 export default (store) => ({
-  path: 'member',
+  path: 'member/*',
   /*  Async getComponent is only invoked when route matches   */
   getComponent (nextState, cb) {
     /*  Webpack - use 'require.ensure' to create a split point

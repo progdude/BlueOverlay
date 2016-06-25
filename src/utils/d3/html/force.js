@@ -122,7 +122,7 @@ class Force {
     this.force.on('tick', () => {
       const that = this;
       const alpha = that.force.alpha();
-      const speedMultipler = 0.25 * alpha;
+      const speedMultipler = 0.15 * alpha;
 
       node.filter(data => data.children && data.children.length === data._children.length && data.type !== 'nav')
         .each(data => {
@@ -170,7 +170,7 @@ class Force {
           if (!data.detached && data.x + data.width > (that.relScale * that.size[0] - 150)) {
             data._parent.children.splice(data._parent.children.indexOf(data), 1);
             data.parent = null;
-            // data.fixed = true;
+            data.fixed = true;
             data.detached = true;
             that.update();
           } else if (data.detached && data.x + data.width < (that.relScale * that.size[0] - 150)) {
@@ -182,7 +182,7 @@ class Force {
             }
             data.parent = data._parent;
             data.detached = false;
-            // data.fixed = false;
+            data.fixed = false;
             if (!data.pinable || data.hidden) {
               d3.select('.pin-area').style({display: 'none'});
             }

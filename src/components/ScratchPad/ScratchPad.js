@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ScratchPad.scss';
 import TextareaAutosize from 'react-textarea-autosize';
 
-export const Header = () => (
+export const ScratchPad = () => (
   <div className={classes.container}>
     <div className={classes.header}>
       Scratch Pad
@@ -14,4 +14,4 @@ export const Header = () => (
   </div>
 );
 
-export default Header;
+export default ScratchPad;

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as nodeActions from '../../../store/syncReducers/nodes';
 
-class DefaultEnter extends Component {
+class Address extends Component {
   static propTypes = {
     id: PropTypes.string,
     type: PropTypes.string,
@@ -14,41 +14,21 @@ class DefaultEnter extends Component {
     update: PropTypes.func,
   };
 
-  constructor (props) {
-    super(props);
-
-    this.clickHandler = this.clickHandler.bind(this);
-  }
-
   render () {
     const node = {...this.props, ...this.props.nodes[this.props.id]};
     return (
-      <div
-        className={node.type || this.props.type || 'default'}
-        onClick={this.clickHandler}
-      >
-        {node.icon && <img className='icon' src={node.icon} alt={node.label} />}
+      <div className={node.type || this.props.type || 'default'}>
         <div className='node-label'>{node.label}</div>
+        <div className='value'>{node.address.street}</div>
+        <div className='value'>{node.address.city}, {node.address.state} {node.address.zip}</div>
       </div>
     );
-  }
+  };
 
   componentWillMount () {
     if (!this.props.nodes[this.props.id].r) {
       this.props.nodeActions.updateTreeNode(this.props.id, { r: true });
     }
-  }
-
-  clickHandler () {
-    if (event.defaultPrevented) return;
-    let node = this.props;
-    let path = '';
-    do {
-      path = `/${node.id}${path}`;
-      node = node._parent;
-    } while (node);
-    this.props.routerActions.push(path);
-    this.props.update();
   }
 }
 
@@ -59,5 +39,5 @@ export default {
       routerActions: bindActionCreators(routerActions, dispatch),
       nodeActions: bindActionCreators(nodeActions, dispatch),
     })
-  )(DefaultEnter),
+  )(Address),
 };

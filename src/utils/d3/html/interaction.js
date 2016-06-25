@@ -1,25 +1,22 @@
 import React, { Component, PropTypes} from 'react';
 import dateFormat from 'date-format';
+import { routerActions } from 'react-router-redux';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as nodeActions from '../../../store/syncReducers/nodes';
 
 class Interactions extends Component {
   static propTypes = {
+    id: PropTypes.string,
     type: PropTypes.string,
-    assign: PropTypes.func,
     r: PropTypes.bool,
-    dateLastUpdate: PropTypes.string,
-    repName: PropTypes.string,
-    member: PropTypes.string,
-    avatar: PropTypes.string,
-    refId: PropTypes.string,
-    channel: PropTypes.string,
-    hccId: PropTypes.string,
-    summary: PropTypes.string,
+    nodes: PropTypes.object,
+    nodeActions: PropTypes.object,
     resume: PropTypes.func,
   };
 
   constructor (props) {
     super(props);
-    props.assign({r: true});
 
     this.state = {
       showDetails: false,
@@ -29,35 +26,36 @@ class Interactions extends Component {
   }
 
   render () {
-    const date = dateFormat('MM/dd/yyyy hh:mm', new Date(this.props.dateLastUpdate));
+    const interaction = this.props.nodes[this.props.id];
+    const date = dateFormat('MM/dd/yyyy hh:mm', new Date(interaction.dateLastUpdate));
     return (
       <div
-        className={`${this.props.type || 'default'} ${this.state.showDetails ? 'detailed' : ''} clickable`}
+        className={`${interaction.type || 'default'} ${this.state.showDetails ? 'detailed' : ''} clickable`}
         onClick={this.toggleDetails}
       >
         {!this.state.showDetails &&
           <div className='short-details'>
             <div className='value'>{date}</div>
-            <div className='value'>{this.props.repName}</div>
+            <div className='value'>{interaction.repName}</div>
             <div className='value'>Service Require</div>
-            <div className='value'>{this.props.refId}</div>
+            <div className='value'>{interaction.refId}</div>
             <div className='value'>Member</div>
-            <div className='value'>{this.props.member}</div>
+            <div className='value'>{interaction.member}</div>
           </div> ||
           <div className='details'>
             <div className='row'>
               <div className='col-xs-3'>
-                <img src={this.props.avatar} alt='avatar' className='avatar' />
+                <img src={interaction.avatar} alt='avatar' className='avatar' />
               </div>
               <div className='col-xs-9'>
                 <div className='node-label'>Service representative</div>
-                <div className='value'>{this.props.repName}</div>
+                <div className='value'>{interaction.repName}</div>
               </div>
             </div>
             <div className='row'>
               <div className='col-xs-6'>
                 <div className='node-label'>Service request</div>
-                <div className='value'>{this.props.refId}</div>
+                <div className='value'>{interaction.refId}</div>
               </div>
               <div className='col-xs-6'>
                 <div className='node-label'>Time stamp</div>
@@ -67,32 +65,45 @@ class Interactions extends Component {
             <div className='row'>
               <div className='col-xs-6'>
                 <div className='node-label'>Channel of interaction</div>
-                <div className='value'>{this.props.channel}</div>
+                <div className='value'>{interaction.channel}</div>
               </div>
               <div className='col-xs-6'>
                 <div className='node-label'>HCCID</div>
-                <div className='value'>{this.props.hccId}</div>
+                <div className='value'>{interaction.hccId}</div>
               </div>
             </div>
             <hr />
-            <div className='summary'>{this.props.summary}</div>
+            <div className='summary'>{interaction.summary}</div>
           </div>}
       </div>
     );
   }
 
-  toggleDetails () {
-    if (!(window.d3.event && window.d3.event.defaultPrevented)) {
-      this.props.assign({
+  componentWillMount () {
+    if (!this.props.nodes[this.props.id].r) {
+      this.props.nodeActions.updateTreeNode(this.props.id, { r: true });
+    }
+  }
+
+  toggleDetails (event) {
+    if (event.defaultPrevented) return;
+    this.props.nodeActions.updateTreeNode(this.props.id,
+      {
         r: this.state.showDetails,
         pinable: !this.state.showDetails,
       });
-      this.props.resume();
-      this.setState({showDetails: !this.state.showDetails});
-    }
+    this.setState({showDetails: !this.state.showDetails});
+    this.props.resume();
   }
 }
 
 export default {
-  enter: Interactions,
+  enter: connect(
+    ({ nodes: { nodes } }) => ({ nodes }),
+    dispatch => ({
+      routerActions: bindActionCreators(routerActions, dispatch),
+      nodeActions: bindActionCreators(nodeActions, dispatch),
+    })
+  )(Interactions),
 };
+

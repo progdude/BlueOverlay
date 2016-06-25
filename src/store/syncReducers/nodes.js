@@ -3,6 +3,8 @@
 // ------------------------------------
 export const UPDATE_NODE = 'UPDATE_NODE';
 export const UPDATE_TREE_NODE = 'UPDATE_TREE_NODE';
+export const SELECT_NODE = 'SELECT_NODE';
+export const TOGGLE_MENU = 'TOGGLE_MENU';
 
 // ------------------------------------
 // Actions
@@ -20,23 +22,51 @@ export function updateTreeNode (id, value) {
   };
 }
 
+export function select (id) {
+  return {
+    type: SELECT_NODE,
+    payload: {id},
+  };
+}
+
+export function toggleMenu (id) {
+  return {
+    type: TOGGLE_MENU,
+    payload: {id},
+  };
+}
+
 export const actions = {
   updateNode,
   updateTreeNode,
+  select,
+  toggleMenu,
 };
 
 const findTreeNode = (node, id) => {
   if (node.id === id) {
     return node;
   }
-  const children = node.children || node._children;
+  const children = node._children || node.children;
   if (children) {
-    const found = children.filter(child => findTreeNode(child, id));
-    if (found.length) {
-      return found[0];
+    for (let index = 0; index < children.length; ++index) {
+      const result = findTreeNode(children[index], id);
+      if (result) {
+        return result;
+      }
     }
   }
   return false;
+};
+
+const reset = (node, parent) => {
+  node._children = node._children || node.children || [];
+  if (parent) {
+    node._parent = node.parent = parent;
+  }
+  node.children = null;
+  node.hidden = true;
+  if (node._children) node._children.forEach(n => reset(n, node));
 };
 
 // ------------------------------------
@@ -49,10 +79,35 @@ const ACTION_HANDLERS = {
     return Object.assign({}, state, {nodes: mergedNodes});
   },
   [UPDATE_TREE_NODE]: (state, { payload: { id, value } }) => {
-    const tree = Object.assign({}, state.tree);
-    const node = findTreeNode(tree, id);
+    const node = findTreeNode(state.tree, id);
     if (node) {
       Object.assign(node, value);
+    }
+    return state;
+  },
+  [TOGGLE_MENU]: (state, { payload: { id } }) => {
+    if (state.menu === id) {
+      return {...state, menu: undefined};
+    }
+    return {...state, menu: id};
+  },
+  [SELECT_NODE]: (state, { payload: { id } }) => {
+    reset(state.tree);
+    const selected = findTreeNode(state.tree, id);
+    if (selected) {
+      selected.children = selected._children || []; // Set the children of selected to the 'cached' children
+      selected.children.forEach(child => (child.hidden = false)); // show the children of selected
+      selected.hidden = false; // show the selected node
+      if (selected._parent) {
+        selected.parent = selected._parent; // set the parent of selected to the 'cached' parent
+        selected.parent.children = [selected]; // set the parent to only have the selected node as the child
+        selected.parent.hidden = false; // show the parent
+        if (selected.parent._parent) {
+          selected.parent.parent = state.tree; // send the parent's parent to the root node, per requirements.
+          selected.parent.parent.children = [selected.parent]; // set the parent's parent child to the selected parent
+          selected.parent.parent.hidden = false; // show the root node.
+        }
+      }
     }
     return state;
   },

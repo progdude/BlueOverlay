@@ -2,7 +2,6 @@ import React, { Component, PropTypes} from 'react';
 import Actions from './actions';
 import dateFormat from 'date-format';
 import { routerActions } from 'react-router-redux';
-import performAction from '../performAction';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as nodeActions from '../../../store/syncReducers/nodes';
@@ -14,6 +13,7 @@ class Member extends Component {
     nodes: PropTypes.object,
     routerActions: PropTypes.object,
     nodeActions: PropTypes.object,
+    update: PropTypes.func,
   };
 
   constructor (props) {
@@ -71,12 +71,16 @@ class Member extends Component {
     );
   }
 
-  clickHandler () {
-    if (this.props.nodes[this.props.id].name === this.state.orginalName) {
-      this.props.nodeActions.updateNode(this.props.id, { name: 'Redux Updated This!' });
-    } else {
-      this.props.nodeActions.updateNode(this.props.id, { name: this.state.orginalName });
-    }
+  clickHandler (event) {
+    if (event.defaultPrevented) return;
+    let node = this.props;
+    let path = '';
+    do {
+      path = `/${node.id}${path}`;
+      node = node._parent;
+    } while (node);
+    this.props.routerActions.push(path);
+    this.props.update();
   }
 }
 
