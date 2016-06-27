@@ -25,7 +25,7 @@ class ForceGraph extends Component {
   componentDidUpdate () {
     const currentNodeId = this.props.router.locationBeforeTransitions.pathname.split('/').pop() ||
       this.props.nodes.tree.id;
-    this.props.nodeActions.select(currentNodeId);
+    this.props.nodeActions.select(decodeURI(currentNodeId));
   }
 
   componentDidMount () {

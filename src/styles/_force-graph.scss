@@ -172,6 +172,7 @@ section.force{
     padding: 15px;
     border-radius: 20px;
     border: 2px solid;
+    z-index: 1;
     .avatar{
       border: 2px solid;
       max-width: 60px;
@@ -282,6 +283,30 @@ section.force{
       width: 40px;
       margin-bottom: 6px;
     }
+    .node-label {
+      margin-top: 38px;
+      font-size: 1.2em;
+      transform: translateY(-50%);
+    }
+    .icon + .node-label {
+      margin-top: 0;
+      font-size: 1em;
+      transform: translateY(0);
+    }
+    &.inner{
+      background-color: rgba(54, 82, 130, 0.8);
+    }
+    &.outer{
+      background-color: rgba(153, 69, 164, 0.8);
+      font-size: .8em;
+      height: 85px;
+      width: 85px;
+      padding: 15px 5px;
+      .node-label {
+        margin-top: 24px;
+        transform: translateY(-50%);
+      }
+    }
   }
 
   .address{
@@ -289,6 +314,15 @@ section.force{
     .node-label{
       margin-bottom: 15px;
     }
+  }
+
+  .details{
+    width: 600px;
+    height: 800px;
+    overflow: auto;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: rgba(54, 82, 130, 0.8);
   }
 
   .interaction{

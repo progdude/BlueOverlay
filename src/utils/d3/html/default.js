@@ -24,7 +24,7 @@ class DefaultEnter extends Component {
     const node = {...this.props, ...this.props.nodes[this.props.id]};
     return (
       <div
-        className={node.type || this.props.type || 'default'}
+        className={`${node.type || this.props.type || 'default'} ${node.style}`}
         onClick={this.clickHandler}
       >
         {node.icon && <img className='icon' src={node.icon} alt={node.label} />}

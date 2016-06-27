@@ -26,7 +26,7 @@ class BreadCrumbs extends Component {
                     <span className={classes.line} />
                     <span className={classes.right} />
                   </span>}
-                <Link to={path}>{index === 0 ? 'Home' : breadCrumb.replace(/-/g, ' ')}</Link>
+                <Link to={path}>{index === 0 ? 'Home' : decodeURI(breadCrumb.replace(/-/g, ' '))}</Link>
               </li>
             );
           })}

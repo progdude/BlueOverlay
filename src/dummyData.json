@@ -4,6 +4,9 @@
   "children": [
     {
       "id": "benefits",
+      "action": {
+        "click": "expand"
+      },
       "navigation": {
         "type": "nav",
         "id": "nav-0",
@@ -20,7 +23,346 @@
             "label": "Wellness"
           }
         ]
-      }
+      },
+      "children": [
+        {
+          "id": "Office",
+          "children": [
+            {"id": "PCP"},
+            {"id": "E-visit"},
+            {
+              "id": "Specialist",
+              "children": [
+                {"id": "Podiatry"},
+                {"id": "Specialist Care"},
+                {"id": "Second Medical Opinion"},
+                {"id": "Dermatology"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Hospital & Facility Services",
+          "children": [
+            {"id": "Skilled Nursing Facility"},
+            {
+              "id": "Hospital",
+              "children": [
+                {"id": "Hospital Facility Services"},
+                {"id": "In-Patient Hospital"},
+                {"id": "Out-Patient Hospital"},
+                {"id": "Hospital RAP"},
+                {
+                  "id": "Hospital Surgery",
+                  "children": [
+                    {"id": "Weight Loss Surgery"},
+                    {"id": "Breast Reconstructive Surgery"},
+                    {"id": "Organ/ Tissue Transplant"}
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "In-Patient & Out-Patient Provider Services",
+              "children": [
+                {"id": "In-Patient Hospital Provider Services"},
+                {"id": "Out-Patient Hospital Provider Services"},
+                {"id": "Provider Services at Hospital and ER"}
+              ]
+            },
+            {
+              "id": "Ambulatory Surgical Center",
+              "children": [
+                {"id": "RAP Provider Services at an ASC"},
+                {"id": "Ambulatory Surgical Center Facility"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Prescription",
+          "children": [
+            {"id": "Medical Pharmacy"},
+            {"id": "Specialty Pharmacy"},
+            {
+              "id": "Prescription Drugs",
+              "children": [
+                {
+                  "id": "Prescription Drugs Details",
+                  "type": "details",
+                  "pinable": true
+                }
+              ]
+            },
+            {"id": "Contraceptives"},
+            {"id": "Medical Injectibles"},
+            {"id": "Part B Drugs"}
+          ]
+        },
+        {
+          "id": "ER and Urgent Care",
+          "children": [
+            {"id": "Ambulance"},
+            {"id": "Accident"},
+            {"id": "Convenient Care Center"},
+            {"id": "Physician Services at Locations Other than Office, Hospital and ER"},
+            {"id": "Urgent Care Center"},
+            {
+              "id": "Emergency Room",
+              "children": [
+                {"id": "Emergency Room Facility"},
+                {"id": "Emergency Room Provider"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Laboratory, Screening & Imaging",
+          "children": [
+            {"id": "Laboratory"},
+            {
+              "id": "X-Ray",
+              "children": [
+                {"id": "Routine X-Ray"},
+                {"id": "Non-Routine X-Ray"},
+                {"id": "Diagnostic Services for bone or joints of the Jaw and Facial Region"},
+                {"id": "Osteoporosis"}
+              ]
+            },
+            {"id": "Independent Diagnostic Testing Center"},
+            {"id": "Mammograms"},
+            {
+              "id": "General",
+              "children": [
+                {"id": "Blood"},
+                {"id": "Test"},
+                {"id": "Clinical Trials"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Maternity",
+          "children": [
+            {"id": "Maternity and Maternity Dependent Daughter"},
+            {"id": "Maternity Without Dependent"},
+            {"id": "Birthing Centers"},
+            {"id": "Newborn & Circumcision"}
+          ]
+        },
+        {
+          "id": "Additional Benefits",
+          "children": [
+            {
+              "id": "Dental",
+              "children": [
+                {"id": "Dental Pediatric"},
+                {"id": "Dental Medical"},
+                {"id": "Dental Preventative"},
+                {"id": "Dental Care"}
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Vision",
+              "children": [
+                {"id": "Vision Medical"},
+                {"id": "Vision Care"},
+                {"id": "Vision Supplemental"},
+                {"id": "Vision Pediatric"}
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Wellness",
+              "children": [
+                {"id": "Wellness MEDSUPA"},
+                {"id": "Wellness Child"},
+                {"id": "Wellness Immunization"},
+                {"id": "Adult Routine Wellness"},
+                {"id": "Wellness Adult GYNO"}
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Therapies",
+              "style": "outer",
+              "children": [
+                {"id": "Autism"},
+                {"id": "Cardiac Pulmonary Rehabilitation"},
+                {"id": "Medical Nutrition"},
+                {"id": "Chemotherapy"},
+                {"id": "Cleft Lip and Cleft Palate"},
+                {
+                  "id": "Massage & Physical Therapy",
+                  "children": [
+                    {"id": "Massage Therapy"},
+                    {"id": "Physical Therapy"},
+                    {"id": "Speech Therapy"},
+                    {"id": "Therapeutic Radiological Services"},
+                    {"id": "Outpatient Rehabilitative Services (Massage, Occupational, Speech, and Physical Therapists)"},
+                    {"id": "In-Patient Rehabilitation"}
+                  ]
+                },
+                {"id": "Radiation Oncology"}
+              ]
+            },
+            {
+              "id": "Infertility",
+              "style": "inner"
+            },
+            {
+              "id": "Mental Health",
+              "children": [
+                {
+                  "id": "Alcohol and Drug",
+                  "children": [
+                    {"id": "Alcohol and Drug In-Patient"},
+                    {"id": "Alcohol and Drug Maximums"},
+                    {"id": "Alcohol and Drug Out-patient"},
+                    {"id": "Alcohol and Drug Care Treatment"}
+                  ]
+                },
+                {
+                  "id": "Mental and Nervous",
+                  "children": [
+                    {"id": "Mental and Nervous Out-patient"},
+                    {"id": "Mental and Nervous In-patient"},
+                    {"id": "Mental and Nervous Care Treatment"}
+                  ]
+                }
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Enteral and Supplies",
+              "children": [
+                {"id": "Enteral Formula"},
+                {
+                  "id": "Supplies",
+                  "children": [
+                    {"id": "Medical Supplies"},
+                    {"id": "Prosthetics & Orthotics"},
+                    {"id": "Durable Medical Equipment"}
+                  ]
+                }
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Diabetes",
+              "children": [
+                {"id": "Diabetic Equipment and Supplies"},
+                {"id": "Diabetic Value Based Services"},
+                {"id": "Diabetes Outpatient Self Management & Training"}
+              ],
+              "style": "inner"
+            },
+            {
+              "id": "Allergy",
+              "style": "outer",
+              "children": [
+                {"id": "Allergy Injection"},
+                {"id": "Allergy Testing"},
+                {"id": "Allergy without office visit"}
+              ]
+            },
+            {
+              "id": "Chiropractic Services",
+              "style": "outer",
+              "children": [
+                {"id": "Musculoskeletal"},
+                {"id": "Chiropractic"},
+                {"id": "Spinal Manipulations"}
+              ]
+            },
+            {
+              "id": "Home Health",
+              "style": "outer",
+              "children": [
+                {"id": "Home Health Care"},
+                {"id": "At Home Recovery Services (not covered by Medicare)"}
+              ]
+            },
+            {
+              "id": "Dialysis Services",
+              "style": "outer",
+              "children": [
+                {"id": "Kidney Disease"},
+                {"id": "Dialysis"}
+              ]
+            },
+            {
+              "id": "Hearing",
+              "style": "outer"
+            },
+            {
+              "id": "Hospice",
+              "style": "outer"
+            },
+            {
+              "id": "Sleep Study",
+              "style": "outer"
+            },
+            {
+              "id": "Sterilization",
+              "style": "outer"
+            },
+            {
+              "id": "Special Rules",
+              "style": "outer",
+              "children": [
+                {"id": "Crossover"},
+                {"id": "Endorsement"},
+                {"id": "Foreign Travel"},
+                {"id": "Managed Care"},
+                {"id": "Maximum Lifetime"},
+                {"id": "Maximum"},
+                {"id": "Overall Lifetime Maximum"},
+                {"id": "Restoration"},
+                {
+                  "id": "Medicare Special Rules",
+                  "children": [
+                    {"id": "Other Medical Expenses (Part B)"},
+                    {"id": "Part A/B Benefits"},
+                    {"id": "Part B Excess Charges (above Medicare approved amount)"}
+                  ]
+                },
+                {"id": "Non-Operational Counties"},
+                {"id": "Operational Counties"},
+                {"id": "Par Indicators"},
+                {"id": "Pre-Existing Conditions"},
+                {"id": "Prior Authorization/Comparative Effectiveness"},
+                {"id": "Processing Exceptions"},
+                {"id": "Timely Filing"}
+              ]
+            },
+            {
+              "id": "General Information",
+              "style": "outer",
+              "children": [
+                {"id": "24 Hour Nurse Line"},
+                {"id": "Affordable Care Act (ACA)"},
+                {"id": "All Other"},
+                {"id": "Additional Plan Information"},
+                {"id": "Care Resources for Members"},
+                {"id": "Fitness Gym Membership"},
+                {"id": "University of Miami Physician Group"},
+                {"id": "Other Covered Services"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "Top Benefit Content",
+          "children": [
+            {"id": "Coinsurance"},
+            {"id": "Out-of-Pocket Maximum"},
+            {"id": "Deductible"},
+            {"id": "Copay"}
+          ]
+        }
+      ]
     },
     {
       "id": "claims",

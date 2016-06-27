@@ -291,5 +291,665 @@
     "personNumber": "01",
     "hccId": "HCCNUMBER",
     "repName": "ELENDOR HUBBARD"
+  },
+  "Office":{
+    "id": "Office",
+    "label": "Office"
+  },
+  "PCP":{
+    "id": "PCP",
+    "label": "PCP"
+  },
+  "Specialist":{
+    "id": "Specialist",
+    "label": "Specialist"
+  },
+  "Podiatry":{
+    "id": "Podiatry",
+    "label": "Podiatry"
+  },
+  "Specialist Care":{
+    "id": "Specialist Care",
+    "label": "Specialist Care"
+  },
+  "Second Medical Opinion":{
+    "id": "Second Medical Opinion",
+    "label": "Second Medical Opinion"
+  },
+  "Dermatology":{
+    "id": "Dermatology",
+    "label": "Dermatology"
+  },
+  "E-visit":{
+    "id": "E-visit",
+    "label": "E-visit"
+  },
+  "Hospital & Facility Services":{
+    "id": "Hospital & Facility Services",
+    "label": "Hospital & Facility Services"
+  },
+  "Skilled Nursing Facility":{
+    "id": "Skilled Nursing Facility",
+    "label": "Skilled Nursing Facility"
+  },
+  "Hospital":{
+    "id": "Hospital",
+    "label": "Hospital"
+  },
+  "Hospital Facility Services":{
+    "id": "Hospital Facility Services",
+    "label": "Hospital Facility Services"
+  },
+  "In-Patient Hospital":{
+    "id": "In-Patient Hospital",
+    "label": "In-Patient Hospital"
+  },
+  "Out-Patient Hospital":{
+    "id": "Out-Patient Hospital",
+    "label": "Out-Patient Hospital"
+  },
+  "Hospital RAP":{
+    "id": "Hospital RAP",
+    "label": "Hospital RAP"
+  },
+  "Hospital Surgery":{
+    "id": "Hospital Surgery",
+    "label": "Hospital Surgery"
+  },
+  "Weight Loss Surgery":{
+    "id": "Weight Loss Surgery",
+    "label": "Weight Loss Surgery"
+  },
+  "Breast Reconstructive Surgery":{
+    "id": "Breast Reconstructive Surgery",
+    "label": "Breast Reconstructive Surgery"
+  },
+  "Organ/ Tissue Transplant":{
+    "id": "Organ/ Tissue Transplant",
+    "label": "Organ/ Tissue Transplant"
+  },
+  "In-Patient & Out-Patient Provider Services":{
+    "id": "In-Patient & Out-Patient Provider Services",
+    "label": "In-Patient & Out-Patient Provider Services"
+  },
+  "In-Patient Hospital Provider Services":{
+    "id": "In-Patient Hospital Provider Services",
+    "label": "In-Patient Hospital Provider Services"
+  },
+  "Out-Patient Hospital Provider Services":{
+    "id": "Out-Patient Hospital Provider Services",
+    "label": "Out-Patient Hospital Provider Services"
+  },
+  "Provider Services at Hospital and ER":{
+    "id": "Provider Services at Hospital and ER",
+    "label": "Provider Services at Hospital and ER"
+  },
+  "Ambulatory Surgical Center":{
+    "id": "Ambulatory Surgical Center",
+    "label": "Ambulatory Surgical Center"
+  },
+  "RAP Provider Services at an ASC":{
+    "id": "RAP Provider Services at an ASC",
+    "label": "RAP Provider Services at an ASC"
+  },
+  "Ambulatory Surgical Center Facility":{
+    "id": "Ambulatory Surgical Center Facility",
+    "label": "Ambulatory Surgical Center Facility"
+  },
+  "Prescription":{
+    "id": "Prescription",
+    "label": "Prescription"
+  },
+  "Medical Pharmacy":{
+    "id": "Medical Pharmacy",
+    "label": "Medical Pharmacy"
+  },
+  "Specialty Pharmacy":{
+    "id": "Specialty Pharmacy",
+    "label": "Specialty Pharmacy"
+  },
+  "Prescription Drugs":{
+    "id": "Prescription Drugs",
+    "label": "Prescription Drugs"
+  },
+  "Prescription Drugs Details":{
+    "id": "Prescription Drugs Details",
+    "details": "<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"width: 950px\">\r\n<col width=\"400\">\r\n<col width=\"200\">\r\n<col width=\"200\">\r\n<col width=\"150\">\r\n\r\n<tr><th colspan=\"4\">Retail Pharmacy (30 day supply)</th></tr>\r\n\r\n<tr valign=\"top\">\r\n<th><b>Benefit</b></th>\r\n<th><b>In-Network</b></th>\r\n<th><b>Out-of-Network</b></th>\r\n<th><b>Authorization Required</b></th>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Deductible</b></td>\r\n<td>In-Network Health Deductible</td>\r\n<td>Not Covered</td>\r\n<td>Not Applicable</td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Generic 1</b></td>\r\n<td>$0 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Generic 2</b></td>\r\n<td>$4 Copay (Deducible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Generic 3</b></td>\r\n<td>$32 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Brand 1</b></td>\r\n<td>$30 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Brand 2</b></td>\r\n<td>50% Coinsurance</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Non-Preferred</b></td>\r\n<td>50% Coinsurance</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><strong>Specialty</strong> – \r\n <a href=\"http://www.bcbsfl.com/DocumentLibrary/Providers/Content/RxF_Specialty_Table_Self.pdf\"><strong>Specialty Vendor list</strong></a> (30 day supply)</td>\r\n<td>50% Coinsurance<p>Specialty drugs are not covered under the mail order pharmacy benefit.</p></td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n</table>\r\n\r\n<br />\r\n\r\n\r\n<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\" style=\"width: 950px\">\r\n<col width=\"400\">\r\n<col width=\"200\">\r\n<col width=\"200\">\r\n<col width=\"150\">\r\n\r\n<tr><th colspan=\"4\">Mail Order Pharmacy (90 day supply)</th></tr>\r\n\r\n<tr valign=\"top\">\r\n<th><b>Benefit</b></th>\r\n<th><b>In-Network</b></th>\r\n<th><b>Out-of-Network</b></th>\r\n<th><b>Authorization Required</b></th>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Deductible</b></td>\r\n<td>In-Network Health Deductible</td>\r\n<td>Not Covered</td>\r\n<td>Not Applicable</td>\r\n</tr>\r\n\r\n<tr><td><b>Generic 1</b></td>\r\n<td>$0 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Generic 2</b></td>\r\n<td>$0 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Generic 3</b></td>\r\n<td>$80 Copay (Deductible Waived)</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td></tr>\r\n\r\n<tr><td><b>Brand 1</b></td>\r\n<td>$75 Copay (Deductible Waived) </td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Brand 2</b></td>\r\n<td>50% Coinsurance</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><b>Non-Preferred</b></td>\r\n<td>50% Coinsurance</td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n<tr>\r\n<td><strong>Specialty</strong> – (30 day supply)</p>\r\n<p>For a list of Specialty Providers access the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n<td>Not Covered<p>Specialty drugs are not covered under the mail order pharmacy benefit.</p></td>\r\n<td>Not Covered</td>\r\n<td><a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></td>\r\n</tr>\r\n\r\n</table>\r\n\r\n\r\n\r\n<p><b>Additional References</b>: Refer to the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a> for detailed coverage information. \r\n\r\n<p><b>Notes:</b>\r\n\r\n<ul>\r\n<li>Pharmacy benefits are managed by Prime. For additional information, contact Prime Therapeutics at 888-849-7865.</li>\r\n \r\n<li>Certain vaccines covered by Wellness Benefits can be given by Pharmacists who are certified. The list of vaccinations is available in the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a>. </li>\r\n\r\n<li>No payment shall be made for prescription drugs purchased from a source (e.g., Pharmacy) outside of the United States. </li>\r\n\r\n<li>Retinoids, such as Retin-A , are excluded from coverage after age 26 regardless of diagnosis.</li>\r\n</ul>\r\n</p>\r\n\r\n<p>\r\n<b>Mandatory Generic Substitution</b> <br/>You pay a lower cost for Generic Prescription Drugs. If you request a Brand Name Prescription Drug when a Generic is available, you will be responsible for paying both the Brand Name cost-share or Non-Preferred cost share (depending on drug dispensed) and the difference in cost between the Generic Prescription Drug and the Brand Name or Non-Preferred Prescription Drug dispensed. Mandatory generic substitution does not apply if the prescriber requests the brand drug. In order for the member to fill the brand name prescription without paying the cost difference, the prescribing physician must indicate “Medically Necessary” on the prescription.</p> \r\n\r\n<p><b>Newly FDA-Approved Medications</b> <br/>\r\nNewly marketed prescription medications may not be covered until the Pharmacy & Therapeutics Committee has had an opportunity to review the medication, to determine whether the medication will be covered and if so, which tier will apply based on safety, efficacy and the availability of other products within that class of medications.</p>\r\n \r\n<p><b>Hepatitis C Medications</b> <br/>\r\nPrescription Drugs used to treat Hepatitis C, are only covered for treatment of advanced liver disease as documented by a liver fibrosis score of Metavir F3 or F4.</p>\r\n\r\n<p><b>Extended Rx Supply</b> <br/>\r\n90-day supply of maintenance medications available at select participating retail pharmacies. When the Extended Supply network is used at applicable retail settings, the member can receive up to a 3 month supply with the cost of the drug per month x 3. For example, a generic drug that has a $10 Copay for a 30 day supply would be $30 for a 3 month supply through the Extended Supply network.\r\n\r\n<p><b> Diabetic Supplies </b>Diabetic supplies such as blood glucose testing strips and tablets, lancets, glucose monitors, and acetone test tablets are covered under the pharmacy benefit.</p>\r\n\r\n<p><strong>Specialty Rx Benefits / Network / Day Supply</strong> - Access the <a href=\"http://www.bcbsfl.com/DocumentLibrary/Providers/Content/RxF_Specialty_Table_Self.pdf\">Specialty Table</a> located in the Care Choices Medication Guide for all covered self-administered Specialty Drugs, including hemophilia medications. Self-administered specialty drugs are limited to a 30-day supply. For a list of Specialty Providers access the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a>.</p>\r\n\r\n<P><b>Self-Administered Rx </b>Coverage for self-administered medications is available through Pharmacy Benefits. A list of self-administered injectable drugs is available in the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a></p>\r\n\r\n\r\n\r\n<p><u><strong>Utilization Management (UM) Programs</strong></u> </p>\r\n<ul>\r\n<p><b>Prior Coverage Authorization</b> <br/>Drugs selected for Prior Coverage Authorization (PA) may require that specific clinical criteria be met before the Drugs will be covered under your pharmacy benefit. The list of drugs requiring Prior Authorization is located in the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a> and are designated with an indicator in the Prior Authorization column in the medication list, BCBSF reserves the right to change the Drugs that require PA at any time and for any reason. </p>\r\n\r\n<p><b>Responsible Quantity</b> <br/>Drugs included in this program allow a maximum quantity per time period. Quantity limits are typically developed based upon FDA-approved Drug labeling and nationally recognized therapeutic clinical guidelines. The list of Drugs that have quantity limits are designated in the medication list with an indicator in the Quantity Limits column. BCBSF reserves the right to change the Drugs and the quantity limits subject to the Responsible Quantity Program at any time and for any reason. In cases where a larger quantity of a Responsible Quantity Drug is medically required, your doctor or health care provider can request an override. Responsible Quantity override forms are available at <a href=\"http://www.bcbsfl.com./\" target=\"_blank\">www.bcbsfl.com.</a> Choose \"<em>Members\" </em>button, then \"<em>Forms\"</em>, then <em>\"Prescription Drug Forms\"</em>. </p>\r\n\r\n<p><b>Responsible Steps</b><br/>Drugs included in this program require that you try another designated or prerequisite Drug first before a Drug listed in the Responsible Steps Medication Chart will be covered. If due to medical reasons you cannot use the prerequisite Drug and require the Responsible Steps Medication, your doctor or health care provider may request prior authorization for an override. If the override request is approved, coverage will be provided for the Responsible Steps Medication. These medications are designated in the medication list with an indicator in the medication list. Medications included in the Responsible Steps Program are listed in the <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a>. BCBSF reserves the right to change the Drugs subject to the Responsible Steps program at any time and for any reason. </p>\r\n</ul>\r\n\r\n\r\n<p><u><strong>Drugs That Are Not Covered<br/></strong></u>Your Pharmacy benefit may not cover select medications. You will be responsible for paying the full cost of such medications. The <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a> contains a list of non-covered drugs. Some reasons a medication may not be covered are: </p>\r\n\r\n<ul><li>The Drug has been shown to have excessive adverse effects and/or safer alternatives are available.</li>\r\n<li>The Drug has a preferred formulary alternative.</li></ul>\r\n<p>Refer to Pharmacy Services Vendor for Pharmacy Benefits.</p>\r\n\r\n\r\n\r\n<p><b><u>Oral Chemotherapy Drug </u></b>list may apply. Please reference BET tool for individual and group specific information. </p>\r\n\r\n<p><b>Smoking Cessation Drugs:</b> See <a href=\"https://www.floridablue.com/tools-resources/pharmacy/medication-guide\" target=\"_blank\">Care Choices Medication Guide</a> for Preventive Coverage."
+  },
+  "Contraceptives":{
+    "id": "Contraceptives",
+    "label": "Contraceptives"
+  },
+  "Medical Injectibles":{
+    "id": "Medical Injectibles",
+    "label": "Medical Injectibles"
+  },
+  "Part B Drugs":{
+    "id": "Part B Drugs",
+    "label": "Part B Drugs"
+  },
+  "ER and Urgent Care":{
+    "id": "ER and Urgent Care",
+    "label": "ER and Urgent Care"
+  },
+  "Ambulance":{
+    "id": "Ambulance",
+    "label": "Ambulance"
+  },
+  "Accident":{
+    "id": "Accident",
+    "label": "Accident"
+  },
+  "Convenient Care Center":{
+    "id": "Convenient Care Center",
+    "label": "Convenient Care Center"
+  },
+  "Urgent Care Center":{
+    "id": "Urgent Care Center",
+    "label": "Urgent Care Center"
+  },
+  "Emergency Room":{
+    "id": "Emergency Room",
+    "label": "Emergency Room"
+  },
+  "Emergency Room Facility":{
+    "id": "Emergency Room Facility",
+    "label": "Emergency Room Facility"
+  },
+  "Emergency Room Provider":{
+    "id": "Emergency Room Provider",
+    "label": "Emergency Room Provider"
+  },
+  "Physician Services at Locations Other than Office, Hospital and ER":{
+    "id": "Physician Services at Locations Other than Office, Hospital and ER",
+    "label": "Physician Services at Locations Other than Office, Hospital and ER"
+  },
+  "Laboratory, Screening & Imaging":{
+    "id": "Laboratory, Screening & Imaging",
+    "label": "Laboratory, Screening & Imaging"
+  },
+  "Laboratory":{
+    "id": "Laboratory",
+    "label": "Laboratory"
+  },
+  "X-Ray":{
+    "id": "X-Ray",
+    "label": "X-Ray"
+  },
+  "Routine X-Ray":{
+    "id": "Routine X-Ray",
+    "label": "Routine X-Ray"
+  },
+  "Non-Routine X-Ray":{
+    "id": "Non-Routine X-Ray",
+    "label": "Non-Routine X-Ray"
+  },
+  "Diagnostic Services for bone or joints of the Jaw and Facial Region":{
+    "id": "Diagnostic Services for bone or joints of the Jaw and Facial Region",
+    "label": "Diagnostic Services for bone or joints of the Jaw and Facial Region"
+  },
+  "Osteoporosis":{
+    "id": "Osteoporosis",
+    "label": "Osteoporosis"
+  },
+  "Independent Diagnostic Testing Center":{
+    "id": "Independent Diagnostic Testing Center",
+    "label": "Independent Diagnostic Testing Center"
+  },
+  "Mammograms":{
+    "id": "Mammograms",
+    "label": "Mammograms"
+  },
+  "General":{
+    "id": "General",
+    "label": "General"
+  },
+  "Blood":{
+    "id": "Blood",
+    "label": "Blood"
+  },
+  "Test":{
+    "id": "Test",
+    "label": "Test"
+  },
+  "Clinical Trials":{
+    "id": "Clinical Trials",
+    "label": "Clinical Trials"
+  },
+  "Maternity":{
+    "id": "Maternity",
+    "label": "Maternity"
+  },
+  "Maternity and Maternity Dependent Daughter":{
+    "id": "Maternity and Maternity Dependent Daughter",
+    "label": "Maternity and Maternity Dependent Daughter"
+  },
+  "Maternity Without Dependent":{
+    "id": "Maternity Without Dependent",
+    "label": "Maternity Without Dependent"
+  },
+  "Birthing Centers":{
+    "id": "Birthing Centers",
+    "label": "Birthing Centers"
+  },
+  "Newborn & Circumcision":{
+    "id": "Newborn & Circumcision",
+    "label": "Newborn & Circumcision"
+  },
+  "Additional Benefits":{
+    "id": "Additional Benefits",
+    "label": "Additional Benefits"
+  },
+  "Dental":{
+    "id": "Dental",
+    "label": "Dental"
+  },
+  "Dental Pediatric":{
+    "id": "Dental Pediatric",
+    "label": "Dental Pediatric"
+  },
+  "Dental Medical":{
+    "id": "Dental Medical",
+    "label": "Dental Medical"
+  },
+  "Dental Preventative":{
+    "id": "Dental Preventative",
+    "label": "Dental Preventative"
+  },
+  "Dental Care":{
+    "id": "Dental Care",
+    "label": "Dental Care"
+  },
+  "Vision":{
+    "id": "Vision",
+    "label": "Vision"
+  },
+  "Vision Medical":{
+    "id": "Vision Medical",
+    "label": "Vision Medical"
+  },
+  "Vision Care":{
+    "id": "Vision Care",
+    "label": "Vision Care"
+  },
+  "Vision Supplemental":{
+    "id": "Vision Supplemental",
+    "label": "Vision Supplemental"
+  },
+  "Vision Pediatric":{
+    "id": "Vision Pediatric",
+    "label": "Vision Pediatric"
+  },
+  "Wellness":{
+    "id": "Wellness",
+    "label": "Wellness"
+  },
+  "Wellness MEDSUPA":{
+    "id": "Wellness MEDSUPA",
+    "label": "Wellness MEDSUPA"
+  },
+  "Wellness Child":{
+    "id": "Wellness Child",
+    "label": "Wellness Child"
+  },
+  "Wellness Immunization":{
+    "id": "Wellness Immunization",
+    "label": "Wellness Immunization"
+  },
+  "Adult Routine Wellness":{
+    "id": "Adult Routine Wellness",
+    "label": "Adult Routine Wellness"
+  },
+  "Wellness Adult GYNO":{
+    "id": "Wellness Adult GYNO",
+    "label": "Wellness Adult GYNO"
+  },
+  "Therapies":{
+    "id": "Therapies",
+    "label": "Therapies"
+  },
+  "Autism":{
+    "id": "Autism",
+    "label": "Autism"
+  },
+  "Cardiac Pulmonary Rehabilitation":{
+    "id": "Cardiac Pulmonary Rehabilitation",
+    "label": "Cardiac Pulmonary Rehabilitation"
+  },
+  "Medical Nutrition":{
+    "id": "Medical Nutrition",
+    "label": "Medical Nutrition"
+  },
+  "Chemotherapy":{
+    "id": "Chemotherapy",
+    "label": "Chemotherapy"
+  },
+  "Cleft Lip and Cleft Palate":{
+    "id": "Cleft Lip and Cleft Palate",
+    "label": "Cleft Lip and Cleft Palate"
+  },
+  "Massage & Physical Therapy":{
+    "id": "Massage & Physical Therapy",
+    "label": "Massage & Physical Therapy"
+  },
+  "Massage Therapy":{
+    "id": "Massage Therapy",
+    "label": "Massage Therapy"
+  },
+  "Physical Therapy":{
+    "id": "Physical Therapy",
+    "label": "Physical Therapy"
+  },
+  "Speech Therapy":{
+    "id": "Speech Therapy",
+    "label": "Speech Therapy"
+  },
+  "Therapeutic Radiological Services":{
+    "id": "Therapeutic Radiological Services",
+    "label": "Therapeutic Radiological Services"
+  },
+  "Outpatient Rehabilitative Services (Massage, Occupational, Speech, and Physical Therapists)":{
+    "id": "Outpatient Rehabilitative Services (Massage, Occupational, Speech, and Physical Therapists)",
+    "label": "Outpatient Rehabilitative Services (Massage, Occupational, Speech, and Physical Therapists)"
+  },
+  "In-Patient Rehabilitation":{
+    "id": "In-Patient Rehabilitation",
+    "label": "In-Patient Rehabilitation"
+  },
+  "Radiation Oncology":{
+    "id": "Radiation Oncology",
+    "label": "Radiation Oncology"
+  },
+  "Infertility":{
+    "id": "Infertility",
+    "label": "Infertility"
+  },
+  "Mental Health":{
+    "id": "Mental Health",
+    "label": "Mental Health"
+  },
+  "Alcohol and Drug":{
+    "id": "Alcohol and Drug",
+    "label": "Alcohol and Drug"
+  },
+  "Alcohol and Drug In-Patient":{
+    "id": "Alcohol and Drug In-Patient",
+    "label": "Alcohol and Drug In-Patient"
+  },
+  "Alcohol and Drug Maximums":{
+    "id": "Alcohol and Drug Maximums",
+    "label": "Alcohol and Drug Maximums"
+  },
+  "Alcohol and Drug Out-patient":{
+    "id": "Alcohol and Drug Out-patient",
+    "label": "Alcohol and Drug Out-patient"
+  },
+  "Alcohol and Drug Care Treatment":{
+    "id": "Alcohol and Drug Care Treatment",
+    "label": "Alcohol and Drug Care Treatment"
+  },
+  "Mental and Nervous":{
+    "id": "Mental and Nervous",
+    "label": "Mental and Nervous"
+  },
+  "Mental and Nervous Out-patient":{
+    "id": "Mental and Nervous Out-patient",
+    "label": "Mental and Nervous Out-patient"
+  },
+  "Mental and Nervous In-patient":{
+    "id": "Mental and Nervous In-patient",
+    "label": "Mental and Nervous In-patient"
+  },
+  "Mental and Nervous Care Treatment":{
+    "id": "Mental and Nervous Care Treatment",
+    "label": "Mental and Nervous Care Treatment"
+  },
+  "Enteral and Supplies":{
+    "id": "Enteral and Supplies",
+    "label": "Enteral and Supplies"
+  },
+  "Enteral Formula":{
+    "id": "Enteral Formula",
+    "label": "Enteral Formula"
+  },
+  "Supplies":{
+    "id": "Supplies",
+    "label": "Supplies"
+  },
+  "Medical Supplies":{
+    "id": "Medical Supplies",
+    "label": "Medical Supplies"
+  },
+  "Prosthetics & Orthotics":{
+    "id": "Prosthetics & Orthotics",
+    "label": "Prosthetics & Orthotics"
+  },
+  "Durable Medical Equipment":{
+    "id": "Durable Medical Equipment",
+    "label": "Durable Medical Equipment"
+  },
+  "Diabetes":{
+    "id": "Diabetes",
+    "label": "Diabetes"
+  },
+  "Diabetic Equipment and Supplies":{
+    "id": "Diabetic Equipment and Supplies",
+    "label": "Diabetic Equipment and Supplies"
+  },
+  "Diabetic Value Based Services":{
+    "id": "Diabetic Value Based Services",
+    "label": "Diabetic Value Based Services"
+  },
+  "Diabetes Outpatient Self Management & Training":{
+    "id": "Diabetes Outpatient Self Management & Training",
+    "label": "Diabetes Outpatient Self Management & Training"
+  },
+  "Allergy":{
+    "id": "Allergy",
+    "label": "Allergy"
+  },
+  "Allergy Injection":{
+    "id": "Allergy Injection",
+    "label": "Allergy Injection"
+  },
+  "Allergy Testing":{
+    "id": "Allergy Testing",
+    "label": "Allergy Testing"
+  },
+  "Allergy without office visit":{
+    "id": "Allergy without office visit",
+    "label": "Allergy without office visit"
+  },
+  "Chiropractic Services":{
+    "id": "Chiropractic Services",
+    "label": "Chiropractic Services"
+  },
+  "Musculoskeletal":{
+    "id": "Musculoskeletal",
+    "label": "Musculoskeletal"
+  },
+  "Chiropractic":{
+    "id": "Chiropractic",
+    "label": "Chiropractic"
+  },
+  "Spinal Manipulations":{
+    "id": "Spinal Manipulations",
+    "label": "Spinal Manipulations"
+  },
+  "Home Health":{
+    "id": "Home Health",
+    "label": "Home Health"
+  },
+  "Home Health Care":{
+    "id": "Home Health Care",
+    "label": "Home Health Care"
+  },
+  "At Home Recovery Services (not covered by Medicare)":{
+    "id": "At Home Recovery Services (not covered by Medicare)",
+    "label": "At Home Recovery Services (not covered by Medicare)"
+  },
+  "Dialysis Services":{
+    "id": "Dialysis Services",
+    "label": "Dialysis Services"
+  },
+  "Kidney Disease":{
+    "id": "Kidney Disease",
+    "label": "Kidney Disease"
+  },
+  "Dialysis":{
+    "id": "Dialysis",
+    "label": "Dialysis"
+  },
+  "Hearing":{
+    "id": "Hearing",
+    "label": "Hearing"
+  },
+  "Hospice":{
+    "id": "Hospice",
+    "label": "Hospice"
+  },
+  "Sleep Study":{
+    "id": "Sleep Study",
+    "label": "Sleep Study"
+  },
+  "Sterilization":{
+    "id": "Sterilization",
+    "label": "Sterilization"
+  },
+  "Special Rules":{
+    "id": "Special Rules",
+    "label": "Special Rules"
+  },
+  "Crossover":{
+    "id": "Crossover",
+    "label": "Crossover"
+  },
+  "Endorsement":{
+    "id": "Endorsement",
+    "label": "Endorsement"
+  },
+  "Foreign Travel":{
+    "id": "Foreign Travel",
+    "label": "Foreign Travel"
+  },
+  "Managed Care":{
+    "id": "Managed Care",
+    "label": "Managed Care"
+  },
+  "Maximum Lifetime":{
+    "id": "Maximum Lifetime",
+    "label": "Maximum Lifetime"
+  },
+  "Maximum":{
+    "id": "Maximum",
+    "label": "Maximum"
+  },
+  "Overall Lifetime Maximum":{
+    "id": "Overall Lifetime Maximum",
+    "label": "Overall Lifetime Maximum"
+  },
+  "Restoration":{
+    "id": "Restoration",
+    "label": "Restoration"
+  },
+  "Medicare Special Rules":{
+    "id": "Medicare Special Rules",
+    "label": "Medicare Special Rules"
+  },
+  "Other Medical Expenses (Part B)":{
+    "id": "Other Medical Expenses (Part B)",
+    "label": "Other Medical Expenses (Part B)"
+  },
+  "Part A/B Benefits":{
+    "id": "Part A/B Benefits",
+    "label": "Part A/B Benefits"
+  },
+  "Part B Excess Charges (above Medicare approved amount)":{
+    "id": "Part B Excess Charges (above Medicare approved amount)",
+    "label": "Part B Excess Charges (above Medicare approved amount)"
+  },
+  "Non-Operational Counties":{
+    "id": "Non-Operational Counties",
+    "label": "Non-Operational Counties"
+  },
+  "Operational Counties":{
+    "id": "Operational Counties",
+    "label": "Operational Counties"
+  },
+  "Par Indicators":{
+    "id": "Par Indicators",
+    "label": "Par Indicators"
+  },
+  "Pre-Existing Conditions":{
+    "id": "Pre-Existing Conditions",
+    "label": "Pre-Existing Conditions"
+  },
+  "Prior Authorization/Comparative Effectiveness":{
+    "id": "Prior Authorization/Comparative Effectiveness",
+    "label": "Prior Authorization/Comparative Effectiveness"
+  },
+  "Processing Exceptions":{
+    "id": "Processing Exceptions",
+    "label": "Processing Exceptions"
+  },
+  "Timely Filing":{
+    "id": "Timely Filing",
+    "label": "Timely Filing"
+  },
+  "General Information":{
+    "id": "General Information",
+    "label": "General Information"
+  },
+  "24 Hour Nurse Line":{
+    "id": "24 Hour Nurse Line",
+    "label": "24 Hour Nurse Line"
+  },
+  "Affordable Care Act (ACA)":{
+    "id": "Affordable Care Act (ACA)",
+    "label": "Affordable Care Act (ACA)"
+  },
+  "All Other":{
+    "id": "All Other",
+    "label": "All Other"
+  },
+  "Additional Plan Information":{
+    "id": "Additional Plan Information",
+    "label": "Additional Plan Information"
+  },
+  "Care Resources for Members":{
+    "id": "Care Resources for Members",
+    "label": "Care Resources for Members"
+  },
+  "Fitness Gym Membership":{
+    "id": "Fitness Gym Membership",
+    "label": "Fitness Gym Membership"
+  },
+  "University of Miami Physician Group":{
+    "id": "University of Miami Physician Group",
+    "label": "University of Miami Physician Group"
+  },
+  "Other Covered Services":{
+    "id": "Other Covered Services",
+    "label": "Other Covered Services"
+  },
+  "Top Benefit Content":{
+    "id": "Top Benefit Content",
+    "label": "Top Benefit Content"
+  },
+  "Coinsurance":{
+    "id": "Coinsurance",
+    "label": "Coinsurance"
+  },
+  "Out-of-Pocket Maximum":{
+    "id": "Out-of-Pocket Maximum",
+    "label": "Out-of-Pocket Maximum"
+  },
+  "Deductible":{
+    "id": "Deductible",
+    "label": "Deductible"
+  },
+  "Copay":{
+    "id": "Copay",
+    "label": "Copay"
   }
 }

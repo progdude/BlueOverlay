@@ -26,24 +26,29 @@ class Force {
     d3 = window.d3;
     this.size = size;
     this.center = center;
-    this.scale = 1;
+    this.scale = 0.7;
     this.relScale = 1 / this.scale;
     this.node = document.createElement('div');
     this.nodes = flatten(data, this.center);
     this.container = d3.select(this.node).append('section')
       .attr('class', 'force')
+      .style({
+        transform: `scale(${this.scale})`,
+        left: `${-((size[0] * this.relScale - size[0]) / 2)}px`,
+        top: `${-((size[1] * this.relScale - size[1]) / 2)}px`,
+        width: `${size[0] * this.relScale}px`,
+        height: `${size[1] * this.relScale}px`,
+      })
       .on('mount', ::this.mount);
 
     this.svgStage = this.container.append('svg')
       .classed('svgStage', true)
-      .style('transform', `scale(${this.scale})`)
       .attr({
-        width: size[0],
-        height: size[1],
+        width: size[0] * this.relScale,
+        height: size[1] * this.relScale,
       });
     this.stage = this.container.append('div')
-      .classed('stage', true)
-      .style('transform', `scale(${this.scale})`);
+      .classed('stage', true);
   }
 
   mount () {
@@ -51,8 +56,15 @@ class Force {
       .gravity(config.gravity)
       .friction(config.friction)
       .linkDistance((data) => {
-        if (data.source.type === 'nav') {
-          return 100;
+        if (data.source.type === 'member' || data.target.type === 'member' ||
+          data.source.style === 'outer' || data.target.style === 'outer') {
+          return config.linkDistance + 200;
+        }
+        if (data.source.style === 'inner' || data.target.style === 'inner') {
+          return config.linkDistance - 25;
+        }
+        if (data.source.type === 'details' || data.target.type === 'details') {
+          return config.linkDistance + 600;
         }
         return config.linkDistance;
       })
@@ -124,7 +136,8 @@ class Force {
       const alpha = that.force.alpha();
       const speedMultipler = 0.15 * alpha;
 
-      node.filter(data => data.children && data.children.length === data._children.length && data.type !== 'nav')
+      node.filter(data => data.style === 'inner' ||
+        data.children && data.children.length === data._children.length && data.type !== 'nav')
         .each(data => {
           data.y += (that.relScale * that.center.y - data.y) * speedMultipler;
           data.x += (that.relScale * that.center.x - data.x) * speedMultipler;
