@@ -1,5 +1,5 @@
 import MemberContainer from './containers/MemberContainer';
 export default (store) => ({
-  path: 'member/:memberId',
+  path: 'member/:memberId/*',
   component: MemberContainer,
 });

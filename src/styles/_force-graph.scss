@@ -316,7 +316,7 @@ section.force{
     }
   }
 
-  .details{
+  .node>.details{
     width: 600px;
     height: 800px;
     overflow: auto;
@@ -337,6 +337,11 @@ section.force{
       width: auto;
       max-width: 230px;
       text-align: left;
+      .node-label {
+        margin-top: 0;
+        font-size: 1em;
+        transform: translateY(0);
+      }
     }
     .summary {
       max-height: 150px;

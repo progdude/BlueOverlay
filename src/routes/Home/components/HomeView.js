@@ -1,3 +1,1 @@
-import ForceGraph from 'components/ForceGraph';
-
-export default ForceGraph;
+export default ({ children }) => (<div>{children}</div>);

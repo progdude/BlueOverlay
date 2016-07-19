@@ -2,16 +2,22 @@
 import CoreLayout from '../layouts/CoreLayout/CoreLayout';
 import Home from './Home';
 import MemberRoute from './Member';
+import MemberRestRoute from './MemberRest';
+import ClaimsList from './Claims';
+import AccumulatorsList from './Accumulators';
 
 /*  Note: Instead of using JSX, we recommend using react-router
     PlainRoute objects to build route definitions.   */
 
 export const createRoutes = (store) => ({
-  path: '/*',
+  path: '/',
   component: CoreLayout,
   indexRoute: Home,
   childRoutes: [
     MemberRoute(store),
+    ClaimsList(store),
+    AccumulatorsList(store),
+    MemberRestRoute(store),
   ]
 });
 

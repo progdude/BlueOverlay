@@ -125,54 +125,14 @@
       "click": "expand"
     }
   },
-  "claim-1": {
-    "id": "claim-1",
-    "label": "Claim",
+  "claims-listing": {
+    "id": "claims-listing",
+    "label": "Claims List",
     "icon": "/images/icons/claims.png"
   },
-  "claim-2": {
-    "id": "claim-2",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-3": {
-    "id": "claim-3",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-4": {
-    "id": "claim-4",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-5": {
-    "id": "claim-5",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-6": {
-    "id": "claim-6",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-7": {
-    "id": "claim-7",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-8": {
-    "id": "claim-8",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-9": {
-    "id": "claim-9",
-    "label": "Claim",
-    "icon": "/images/icons/claims.png"
-  },
-  "claim-10": {
-    "id": "claim-10",
-    "label": "Claim",
+  "accumulators-listing": {
+    "id": "accumulators-listing",
+    "label": "Accumulators List",
     "icon": "/images/icons/claims.png"
   },
   "addresses": {

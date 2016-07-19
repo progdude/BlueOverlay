@@ -79,7 +79,7 @@ class Member extends Component {
       path = `/${node.id}${path}`;
       node = node._parent;
     } while (node);
-    this.props.routerActions.push(path);
+    this.props.routerActions.push(`/member${path}`);
     this.props.update();
   }
 }

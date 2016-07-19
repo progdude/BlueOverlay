@@ -138,7 +138,7 @@ class Force {
           if (!d.detached && d.x + d.width > (this.relScale * this.size[0] - 150)) {
             d._parent.children.splice(d._parent.children.indexOf(d), 1);
             d.parent = null;
-            //d.fixed = true;
+            // d.fixed = true;
             d.detached = true;
             this.update();
           } else if (d.detached && d.x + d.width < (this.relScale * this.size[0] - 150)) {
@@ -150,7 +150,7 @@ class Force {
             }
             d.parent = d._parent;
             d.detached = false;
-            //d.fixed = false;
+            // d.fixed = false;
             if (!d.pinable || d.hidden) {
               d3.select('.pin-area').style({display: 'none'});
             }

@@ -367,16 +367,8 @@
     {
       "id": "claims",
       "children": [
-        {"id": "claim-1"},
-        {"id": "claim-2"},
-        {"id": "claim-3"},
-        {"id": "claim-4"},
-        {"id": "claim-5"},
-        {"id": "claim-6"},
-        {"id": "claim-7"},
-        {"id": "claim-8"},
-        {"id": "claim-9"},
-        {"id": "claim-10"}
+        {"id": "claims-listing"},
+        {"id": "accumulators-listing"}
       ]
     },
     {

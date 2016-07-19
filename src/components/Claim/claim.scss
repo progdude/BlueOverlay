@@ -1,0 +1,32 @@
+.claim {
+  background-color: #003265;
+  height: 180px;
+  width: 160px;
+  padding: 10px;
+  margin: 20px;
+  float: left;
+  text-align: center;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 1;
+  position: relative;
+  &:nth-child(4n){
+    margin-right: 0;
+  }
+}
+.dot{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: green;
+}
+.claimType{
+  font-size: .8em;
+  font-weight: 600;
+  line-height: 2;
+}
+.badges{
+  bottom: 10px;
+  width: 100%;
+  position: absolute;
+}

@@ -26,7 +26,7 @@ class Force {
     d3 = window.d3;
     this.size = size;
     this.center = center;
-    this.scale = 0.7;
+    this.scale = 0.85;
     this.relScale = 1 / this.scale;
     this.node = document.createElement('div');
     this.nodes = flatten(data, this.center);
@@ -56,8 +56,7 @@ class Force {
       .gravity(config.gravity)
       .friction(config.friction)
       .linkDistance((data) => {
-        if (data.source.type === 'member' || data.target.type === 'member' ||
-          data.source.style === 'outer' || data.target.style === 'outer') {
+        if (data.source.type === 'member' || data.target.type === 'member') {
           return config.linkDistance + 200;
         }
         if (data.source.style === 'inner' || data.target.style === 'inner') {
