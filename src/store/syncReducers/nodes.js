@@ -95,7 +95,7 @@ const ACTION_HANDLERS = {
     reset(state.tree);
     const selected = findTreeNode(state.tree, id);
     if (selected) {
-      selected.children = selected._children || []; // Set the children of selected to the 'cached' children
+      selected.children = [...selected._children] || []; // Set the children of selected to the 'cached' children
       selected.children.forEach(child => (child.hidden = false)); // show the children of selected
       selected.hidden = false; // show the selected node
       if (selected._parent) {
