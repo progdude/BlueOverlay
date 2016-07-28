@@ -1,7 +1,7 @@
 .background {
   background-color: #003265;
   opacity: .65;
-  height: 700px;
+  min-height: 500px;
   width: 600px;
   float: right;
   border-radius: 10px;
@@ -16,4 +16,25 @@
 .header {
 	font-weight: bold;
 	padding-top: 1.2em;
+}
+
+.checkboxHeader {
+  font-weight: bold;
+  padding-top: 1.2em;
+  display: inline-block;
+}
+
+.paddingTop {
+  padding-top: 1.2em;
+  position: relative;
+}
+
+.backButton {
+  background-color: #003265;
+  font-size: 2em;
+  color: #fff;
+}
+
+.link {
+  color: #fff;
 }

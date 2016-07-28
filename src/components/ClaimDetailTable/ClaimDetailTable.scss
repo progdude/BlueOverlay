@@ -1,0 +1,43 @@
+table {
+  border-radius: 15px;
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+th, td {
+  height: 30px;
+  text-align: center;
+  vertical-align: center;
+}
+
+th:hover {
+  background-color: #C3C3C3;
+}
+
+td {
+  padding: 5px;
+}
+
+tr:hover, tr::selection, tr:active {
+  background-color: #B5D1AB;
+}
+
+tr:nth-child(even) {
+  background-color: #EFEFEF;
+}
+
+thead {
+  background-color: #C3C3C3;
+  color: #605e5d;
+  padding: 15px;
+}
+
+tbody {
+  background-color: #ffffff;
+  color: #7B7978;
+}
+
+.activeRow {
+  background-color: #B5D1AB;
+}

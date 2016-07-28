@@ -1,0 +1,41 @@
+.background {
+  background-color: #003265;
+  opacity: .65;
+  min-height: 500px;
+  width: 600px;
+  float: right;
+  border-radius: 10px;
+  color: #fff;
+  line-height: 1;
+  position: fixed;
+  right: 1.2em;
+  top: 6.5em;
+  padding: 1.2em;
+}
+
+.header {
+	font-weight: bold;
+	padding-top: 1.2em;
+}
+
+.backButton {
+  background-color: #003265;
+  font-size: 2em;
+}
+
+.proceedButton {
+  background-color: #1dae00;
+  border-radius: 5px;
+  margin-top: 1.2em;
+  padding: .5em;
+  text-align: center;
+}
+
+.link {
+  color: #fff;
+}
+
+.paddingTop {
+  padding-top: .5em;
+  position: relative;
+}

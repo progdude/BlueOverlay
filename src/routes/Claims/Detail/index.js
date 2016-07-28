@@ -1,6 +1,6 @@
-import ClaimDetail from 'components/ClaimHeader';
+import ClaimDetail from 'components/ClaimDetail';
 
 export default (store) => ({
-  path: ':claimId',
+  path: ':claimId/detail/:index',
   component: ClaimDetail,
 });
