@@ -60,6 +60,7 @@ const findTreeNode = (node, id) => {
 };
 
 const reset = (node, parent) => {
+  if (node.detached) return;
   node._children = node._children || node.children || [];
   if (parent) {
     node._parent = node.parent = parent;
@@ -95,7 +96,9 @@ const ACTION_HANDLERS = {
     reset(state.tree);
     const selected = findTreeNode(state.tree, id);
     if (selected) {
-      selected.children = [...selected._children] || []; // Set the children of selected to the 'cached' children
+      selected.children = selected._children // Set the children of selected to the 'cached' children
+        ? selected._children.filter(child => !child.detached)
+        : [];
       selected.children.forEach(child => (child.hidden = false)); // show the children of selected
       selected.hidden = false; // show the selected node
       if (selected._parent) {

@@ -6,10 +6,12 @@ import config from '../forceConfig';
 import renderers from './renderers';
 import betweenRect from '../lineBetweenRect';
 import betweenCircle from '../lineBetweenCircle';
+import * as nodeActions from '../../../store/syncReducers/nodes';
 import { getStore } from '../../../store/createStore';
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
 const store = getStore();
+const { dispatch } = store;
 
 class Force {
   constructor (
@@ -24,6 +26,7 @@ class Force {
     }
   ) {
     d3 = window.d3;
+    this.state = store.getState();
     this.size = size;
     this.center = center;
     this.scale = 0.85;
@@ -127,8 +130,6 @@ class Force {
           node.style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
         }
       });
-    this.force
-      .start();
 
     this.force.on('tick', () => {
       const that = this;
@@ -182,6 +183,7 @@ class Force {
           if (!data.detached && data.x + data.width > (that.relScale * that.size[0] - 150)) {
             data._parent.children.splice(data._parent.children.indexOf(data), 1);
             data.parent = null;
+            dispatch(nodeActions.updateTreeNode(data.id, {fixed: true, detached: true}));
             data.fixed = true;
             data.detached = true;
             that.update();
@@ -193,6 +195,7 @@ class Force {
               data.hidden = true;
             }
             data.parent = data._parent;
+            dispatch(nodeActions.updateTreeNode(data.id, {fixed: false, detached: false}));
             data.detached = false;
             data.fixed = false;
             if (!data.pinable || data.hidden) {
@@ -229,6 +232,9 @@ class Force {
       link.filter(data => !(data.target.children && data.target.children.length > 0))
         .classed('back', false);
     });
+
+    this.force
+      .start();
   }
 
   dragstart (data, nodeIndex) {
