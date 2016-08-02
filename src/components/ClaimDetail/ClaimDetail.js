@@ -8,7 +8,7 @@ import * as styles from './ClaimDetail.scss';
 
 const ClaimDetail = (props) => {
   const selectedClaim = props.claims.filter(claim => claim._id === props.claimId)[0];
-  const claimDetails = selectedClaim.details[props.detailIndex];
+  const claimDetails = selectedClaim.details[0];
   return (
     <div className={styles.background}>
       <div className={styles.backButton}>
