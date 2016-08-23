@@ -45,6 +45,7 @@ class Interactions extends Component {
           <div className='details'>
             <div className='row'>
               <div className='col-xs-3'>
+              <img src="/images/icons/green-check.png" alt='avatar' className='avatar' className="avatar green-check"  />
                 <img src={interaction.avatar} alt='avatar' className='avatar' />
               </div>
               <div className='col-xs-9'>

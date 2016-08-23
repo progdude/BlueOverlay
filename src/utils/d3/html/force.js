@@ -98,7 +98,7 @@ class Force {
 
     const link = svgStage.selectAll('.link')
       .data(links, link => `${link.target.id}-${link.source.id}`);
-
+    
     link.enter().append('path')
       .attr('class', 'link');
     link.exit().style('opacity', 1).transition().duration(500).style('opacity', 0).remove();
@@ -180,14 +180,59 @@ class Force {
         }
 
         if ((data.detached || data.pinable) && !data.hidden && (!data.children || data.children.length === 0)) {
+
           if (!data.detached && data.x + data.width > (that.relScale * that.size[0] - 150)) {
+            console.log('pinnedRight');
             data._parent.children.splice(data._parent.children.indexOf(data), 1);
             data.parent = null;
             dispatch(nodeActions.updateTreeNode(data.id, {fixed: true, detached: true}));
             data.fixed = true;
             data.detached = true;
+            data.pinnedRight=true;
             that.update();
-          } else if (data.detached && data.x + data.width < (that.relScale * that.size[0] - 150)) {
+          } 
+
+          else if(!data.detached && data.x < 250){
+            console.log('pinnedLeft');
+
+            d3.select(this)
+           
+              .transition()
+              .duration(1500)
+              .style("opacity", "0")
+              .each('end', function(){
+                                     d3.selectAll(".random")
+            .style("background", "linear-gradient(rgba(0, 50, 101, 1), rgba(0, 50, 101, 1)), url()");
+            d3.select(".green-check")
+            .style("display", "inline");
+              });
+
+            d3.selectAll(".detailed")
+            .style("background", "linear-gradient(rgba(54, 82, 130, 0.5), rgba(54, 82, 130, 0.5)), url(http://cdn.grid.fotosearch.com/CSP/CSP994/k16168496.jpg)")
+            .classed("random", true);
+
+
+            d3.select(this)
+              .transition()
+              .delay(5000)
+              .duration(1500)
+              .style("opacity", "1");
+
+    
+
+            data._parent.children.splice(data._parent.children.indexOf(data), 1);
+            data.parent = null;
+            dispatch(nodeActions.updateTreeNode(data.id, {fixed: true, detached: true}));
+            data.fixed = true;
+            data.detached = true;
+            data.pinnedLeft=true;
+            that.update();
+          }
+
+
+          else if (data.detached && data.x + data.width < (that.relScale * that.size[0] - 150) && data.pinnedRight) {
+            console.log('unPinnedRight');
+            data.pinnedRight =false;
             if (data._parent.children) {
               data._parent.children.push(data);
             } else {
@@ -200,9 +245,33 @@ class Force {
             data.fixed = false;
             if (!data.pinable || data.hidden) {
               d3.select('.pin-area').style({display: 'none'});
+              d3.select('.left_pin').style({display: 'none'});
             }
             that.update();
           }
+
+          else if(data.detached && data.x > 250 && data.pinnedLeft){
+            console.log('unPinnedLeft');
+
+            data.pinnedLeft=false;
+            if (data._parent.children) {
+              data._parent.children.push(data);
+            } else {
+              data._parent._children.push(data);
+              data.hidden = true;
+            }
+            data.parent = data._parent;
+            dispatch(nodeActions.updateTreeNode(data.id, {fixed: false, detached: false}));
+            data.detached = false;
+            data.fixed = false;
+            if (!data.pinable || data.hidden) {
+              d3.select('.pin-area').style({display: 'none'});
+              d3.select('.left_pin').style({display: 'none'});
+            }
+            that.update();
+          }
+
+
         }
       });
 
@@ -241,6 +310,7 @@ class Force {
     data.dragging = true;
     if ((data.detached || data.pinable) && !data.hidden && (!data.children || data.children.length === 0)) {
       d3.select('.pin-area').style({ display: 'block' });
+      d3.select('.left_pin').style({ display: 'block' });
     }
   }
 
@@ -253,6 +323,7 @@ class Force {
 
   dragend (data, nodeIndex) {
     d3.select('.pin-area').style({display: 'none'});
+    d3.select('.left_pin').style({display: 'none'});
     data.dragging = false;
   }
 }

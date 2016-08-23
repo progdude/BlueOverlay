@@ -29,15 +29,19 @@ class ForceGraph extends Component {
   }
 
   componentDidMount () {
+
     const graph = new Force(this.props.nodes.tree);
+    console.log(this.props.nodes.tree);
     const svgDefs = new SvgDefs(graph.svgStage);
     svgDefs.avatarClip().startArrow().endCircle();
     this.setState({d3: graph.node});
+    
   }
 
   render () {
     return (
       <div>
+        <div className="left_pin"></div>
         <div className={classes.full}>
           <RD3Component data={this.state.d3} />
         </div>

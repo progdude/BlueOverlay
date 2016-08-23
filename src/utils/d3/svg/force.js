@@ -135,13 +135,15 @@ class Force {
         }
 
         if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
-          if (!d.detached && d.x + d.width > (this.relScale * this.size[0] - 150)) {
+          console.log(d.x);
+          if (!d.detached && (d.x + d.width > (this.relScale * this.size[0] - 150)) || d.x < 150 ) {
+            console.log("detached");
             d._parent.children.splice(d._parent.children.indexOf(d), 1);
             d.parent = null;
             // d.fixed = true;
             d.detached = true;
             this.update();
-          } else if (d.detached && d.x + d.width < (this.relScale * this.size[0] - 150)) {
+          } else if (d.detached && (d.x + d.width < (this.relScale * this.size[0] - 150)) || d.x > 150 ) {
             if (d._parent.children) {
               d._parent.children.push(d);
             } else {
@@ -153,6 +155,7 @@ class Force {
             // d.fixed = false;
             if (!d.pinable || d.hidden) {
               d3.select('.pin-area').style({display: 'none'});
+              d3.select('.left_pin').style({display: 'none'});
             }
             this.update();
           }
@@ -189,6 +192,7 @@ class Force {
     d.dragging = true;
     if ((d.detached || d.pinable) && !d.hidden && (!d.children || d.children.length === 0)) {
       d3.select('.pin-area').style({ display: 'block' });
+      d3.select('.left_pin').style({ display: 'block' });
     }
   }
 
@@ -201,6 +205,7 @@ class Force {
 
   dragend (d, i) {
     d3.select('.pin-area').style({display: 'none'});
+    d3.select('.left_pin').style({display: 'none'});
     d.dragging = false;
   }
 }
