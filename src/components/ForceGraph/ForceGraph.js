@@ -8,6 +8,7 @@ const RD3Component = rd3.Component;
 import { routerActions } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import * as nodeActions from '../../store/syncReducers/nodes';
+import $ from "jquery";
 
 class ForceGraph extends Component {
   static propTypes = {
@@ -21,6 +22,13 @@ class ForceGraph extends Component {
 
     this.state = {d3: ''};
   }
+
+    _refresh =(parameter) =>{
+
+      console.log("dfasd");
+
+
+  };
 
   componentDidUpdate () {
     const currentNodeId = this.props.router.locationBeforeTransitions.pathname.split('/').pop() ||
@@ -42,8 +50,8 @@ class ForceGraph extends Component {
     return (
       <div>
         <div className="left_pin"></div>
-        <div className={classes.full}>
-          <RD3Component data={this.state.d3} />
+        <div className={classes.full} onClick={this._refresh}>
+          <RD3Component data={this.state.d3}/>
         </div>
         <div className='pin-area'></div>
       </div>

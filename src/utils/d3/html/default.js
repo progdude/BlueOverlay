@@ -43,11 +43,13 @@ class DefaultEnter extends Component {
     if (event.defaultPrevented) return;
     let node = this.props;
     let path = '';
+
     do {
       path = `/${node.id}${path}`;
       node = node._parent;
     } while (node);
     this.props.routerActions.push(`/member${path}`);
+    
     this.props.update();
   }
 }

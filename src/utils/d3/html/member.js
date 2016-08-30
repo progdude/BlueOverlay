@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as nodeActions from '../../../store/syncReducers/nodes';
 
+
 class Member extends Component {
   static propTypes = {
     type: PropTypes.string,

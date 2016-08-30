@@ -8,8 +8,11 @@ import betweenRect from '../lineBetweenRect';
 import betweenCircle from '../lineBetweenCircle';
 import * as nodeActions from '../../../store/syncReducers/nodes';
 import { getStore } from '../../../store/createStore';
+import HashMap from "hashmap";
 let d3; // Another lib adds d3 to the window, we need to use that one so we grab it from the window when we need it
 
+
+let map = new HashMap();
 const store = getStore();
 const { dispatch } = store;
 
@@ -21,7 +24,7 @@ class Force {
       document.documentElement.clientHeight
     ],
     center = {
-      x: size[0] / 2,
+      x: size[0]/2,
       y: size[1] / 2,
     }
   ) {
@@ -131,10 +134,12 @@ class Force {
         }
       });
 
+      
     this.force.on('tick', () => {
       const that = this;
       const alpha = that.force.alpha();
       const speedMultipler = 0.15 * alpha;
+
 
       node.filter(data => data.style === 'inner' ||
         data.children && data.children.length === data._children.length && data.type !== 'nav')
@@ -142,6 +147,25 @@ class Force {
           data.y += (that.relScale * that.center.y - data.y) * speedMultipler;
           data.x += (that.relScale * that.center.x - data.x) * speedMultipler;
         });
+
+      node.filter(data => data.height==125 && data.id!=="members")
+        .each(data => {
+
+          if(map.get(data.id)==undefined){
+            setTimeout(function(){map.set(data.id, {x: data.x, y:data.y})}, 500);
+            //map.set(data.id, {x: data.x, y:data.y})
+          }
+          else{
+            if(data.id=="Office"){
+              console.log(map.get(data.id));
+            }
+            data.y += (map.get(data.id).y-data.y) * speedMultipler;
+            data.x += (map.get(data.id).x-data.x)* speedMultipler;
+          }
+
+ 
+            
+         });
 
       node.filter(data => data.momentmun && !data.dragging).each(data => {
         data.y += data.momentmun.y;

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import classes from './ScratchPad.scss';
 import TextareaAutosize from 'react-textarea-autosize';
+import Hammer from 'react-hammerjs';
 
 export class ScratchPad extends React.Component{
 
@@ -22,7 +23,8 @@ return (
 <img src='/images/icons/bottom.png' className={classes.overs}/>
   </div>
 </div>
-  <div className={classes.container} onClick={this._open}>
+<Hammer onSwipe={this._open}>
+  <div className={classes.container}>
     <div className={classes.header}>
       Scratch Pad
     </div>
@@ -31,6 +33,7 @@ return (
       Recap
     </div>
   </div>
+  </Hammer>
   </div>
   );
 }
