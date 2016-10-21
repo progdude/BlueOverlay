@@ -46,8 +46,8 @@
     z-index: 500;
     bottom: 0;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    
+    background-color: #5E6263;
     overflow-y: hidden;
     transition: 0.5s;
 }
@@ -65,6 +65,38 @@
     top: 20px;
     right: 45px;
     font-size: 60px;
+}
+
+
+.circularButton{
+  width: 3vw;
+  height: 3vw;
+  border-radius: 2vw;
+  margin-left: 0.5vw;
+  color: #fff;
+  background-color:#56B4E7;  
+}
+
+.circularButtonMain{
+  width: 4vw;
+  height: 4vw;
+  border-radius: 2vw;
+  margin-left: 0.5vw;
+  color: #fff;
+  background-color:#56B4E7;  
+}
+
+
+
+.themeBtn{
+  width: 10vw;
+  height: 4vh;
+  margin-left: 10vw;
+  background-color: #99999B;
+  color: #fff;
+      -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
 }
 
 @media screen and (max-height: 450px) {

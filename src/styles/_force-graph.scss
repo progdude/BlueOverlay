@@ -382,12 +382,46 @@ section.force{
 
 
 
-
+.showGrid{
+  margin-top: 5vh;
+  margin-bottom: 8vh;
+}
 
 
 
 .box-slide {
   position: relative;
+}
+
+#query{
+  background-color: #6E747A;
+  width: 100%;
+  color: #fff;
+  height: 5vh;
+  font-size:2.5vh;
+
+}
+
+#pie-chart{
+  margin: 0 auto;
+  height: 25vh;
+}
+
+#calen_title{
+  text-align: center;
+  color: #fff;
+  font-size:4vh;
+}
+
+#meetings{
+  color: #fff;
+  font-size:2.5vh;
+}
+
+#results{
+  font-size: 2vh;
+  text-align: center;
+  color: #fff;
 }
 
 
@@ -421,4 +455,7 @@ section.force{
   text-align: center;
   color: #fff;
 }
+
+
+
 
