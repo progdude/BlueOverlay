@@ -1,3 +1,10 @@
+
+# Blue Specific
+All the slide up and slide down features can be found in src/components/scratch pad & src/components/header respectively. More info about top one can be found here: 
+
+
+
+
 # Customer Connect Starter Kit
 
 This starter kit is designed to get you up and running with a bunch of awesome new front-end technologies, all on top of a configurable, feature-rich webpack build system that's already setup to provide hot reloading, CSS modules with Sass support, unit testing, code coverage reports, bundle splitting, and a whole lot more.
