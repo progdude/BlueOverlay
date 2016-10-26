@@ -1,6 +1,9 @@
 
 # Blue Specific
-All the slide up and slide down features can be found in src/components/scratch pad & src/components/header respectively. More info about top one can be found here: 
+All the slide up and slide down features can be found in src/components/scratch pad & src/components/header respectively.
+More info about top one can be found here: 
+https://github.com/progdude/BlueTopOverlay/
+The top overlay is basically an iframe to which displays the code above.
 
 
 
